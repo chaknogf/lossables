@@ -1,0 +1,5 @@
+/* En styles.css si Tailwind no lo cubre completamente */
+.bg-glass-white {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+}

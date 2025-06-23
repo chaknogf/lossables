@@ -1,0 +1,6 @@
+<div class="carrusel-hover">
+  <div class="imagen-container" *ngFor="let item of imagenes">
+    <img [src]="item.src" alt="Imagen médico" />
+    <div class="comentario">{{ item.comentario }}</div>
+  </div>
+</div>

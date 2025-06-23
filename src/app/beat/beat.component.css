@@ -1,0 +1,52 @@
+/* Contenedor central */
+.loading {
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  align-items: center;
+  height: 150px;
+}
+
+/* SVG escalable */
+/* .loading svg {
+  width: 120px;
+  height: 120px;
+} */
+
+/* Línea base */
+.loading svg polyline {
+  fill: none;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Línea de fondo (gris suave o transparente) */
+.loading svg polyline#back {
+  stroke: rgba(0, 0, 0, 0.1);
+}
+
+/* Línea animada */
+.loading svg polyline#front {
+  stroke: #FF0000;
+  stroke-dasharray: 48, 144;
+  stroke-dashoffset: 192;
+  animation: dash_682 1.7s linear infinite;
+  filter: drop-shadow(2px 4px 6px rgba(210, 208, 208, 0.801)) opacity(0.8);
+}
+
+@keyframes dash_682 {
+  72.5% {
+    opacity: 0;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .loading svg {
+    width: 80px;
+    height: 80px;
+  }
+}

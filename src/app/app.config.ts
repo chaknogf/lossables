@@ -1,6 +1,11 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
+// src/app/app.config.ts
+import { ApplicationConfig } from '@angular/core';
+import { provideClientHydration, withIncrementalHydration } from '@angular/platform-browser';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideClientHydration(withEventReplay())]
+  providers: [
+    provideClientHydration(
+      withIncrementalHydration() // Asegúrate de que esto esté presente
+    )
+  ]
 };

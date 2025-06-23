@@ -1,0 +1,47 @@
+<section class="container-fluid py-5 bg-light w-100">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Texto principal -->
+      <div class="col-md-6 mb-4 mb-md-0">
+        <div class="position-relative">
+          <div class="position-absolute top-50 ms-1  translate-middle opacity-20 w-75 " style="z-index: 0;">
+            <app-beat></app-beat>
+          </div>
+          <h1 class="display-6 fw-bold text-primary ms-5 position-relative desplazamiento-sm" style="z-index: 1;">
+            Bienvenido al Centro Médico Los Sables
+          </h1>
+          <style>
+            @media (max-width: 576px) {
+              .desplazamiento-sm {
+                transform: translateX(13%) translatey(-14%);
+              }
+            }
+          </style>
+        </div>
+        <p class="lead text-muted ms-5">
+          Atención médica con calidad humana. Confía tu salud en manos expertas y modernas.
+        </p>
+        <a href="#contacto" class="btn btn-outline-primary btn-lg mt-3">
+          Agendar cita
+        </a>
+      </div>
+
+      <!-- Imagen del doctor -->
+       <div class="col-md-6 mb-4  d-flex justify-content-center">
+        <div class="flip-card" tabindex="0">
+          <div class="flip-card-inner">
+        <!-- Front: Imagen del doctor -->
+        <div class="flip-card-front d-flex justify-content-center align-items-center">
+          <img src="assets/doc.avif" alt="Doctor profesional" class="img-fluid rounded-5 w-75 shadow" />
+        </div>
+        <!-- Back: Componente personalizado -->
+        <div class="flip-card-back d-flex justify-content-center align-items-center">
+          <app-mapa />
+        </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
