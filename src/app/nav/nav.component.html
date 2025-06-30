@@ -1,17 +1,45 @@
-<header class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <!-- Logo o nombre -->
-    <a class="navbar-brand d-flex align-items-center" href="#">
-      <span [innerHTML]="logoicon" > </span>
-      <span> Centro Médico Los Sables</span>
-    </a>
-
-    <!-- Información de contacto -->
-    <div class="d-flex align-items-center">
-      <a class="nav-link" href="tel:+50212345678">📞 +502 1234-5678</a>
-      <a class="nav-link" href="mailto:contacto@lossables.com">
+<header class="navbar navbar-expand-lg navbar-light bg-light ">
+  <div class="navbar-header  w-100">
+    <div class="d-flex align-items-center justify-content-around w-100">
+      <a class="nav-link ocultar-en-movil" href="tel:+50212345678">📞 +502 1234-5678</a>
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <span [innerHTML]="logoicon"></span>
+        <span> Centro Médico Los Sables</span>
+      </a>
+      <a class="nav-link ocultar-en-movil" href="mailto:contacto@lossables.com">
         <span>✉️ {{link}}</span>
       </a>
     </div>
+    <nav class="navbar navbar-expand-lg navbar-secondary bg-primary w-100 mt-0">
+      <div class="container-fluid justify-content-center flex-column ">
+        <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+          aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon "></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarMenu">
+          <ul class="navbar-nav me-auto ">
+            <li class="nav-item">
+              <a class="nav-link text-white bg-hover" href="#">Consulta General</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white bg-hover" href="#">Pediatría</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white bg-hover" href="#">Laboratorio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white bg-hover" href="#">Rayos X</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white bg-hover" href="#">Especialistas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white bg-hover" href="#">Emergencias</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
   </div>
 </header>

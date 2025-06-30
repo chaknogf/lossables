@@ -1,0 +1,15 @@
+@media (max-width: 600px) {
+  .ocultar-en-movil {
+    display: none !important;
+  }
+}
+
+.bg-hover:hover {
+  background-color: #20c996cc;
+  transition: background-color 0.5s ease;
+  transition: border-color 0.5s ease;
+  transition: color 0.5s ease;
+  transition: fill 0.5s ease;
+  transition: stroke 0.5s ease;
+  border-radius: 8px;
+}
