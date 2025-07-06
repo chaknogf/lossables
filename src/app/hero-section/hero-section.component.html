@@ -1,0 +1,66 @@
+<section id="inicio" class="hero-section text-white py-5" >
+  <div class="container py-5">
+    <div class="row align-items-center min-vh-75 gy-4">
+
+      <!-- Columna Izquierda: Beat + Saludo -->
+      <div class="col-lg-7 text-center text-lg-start">
+        <div class="d-flex flex-column flex-md-row align-items-center mb-4">
+          <!-- Componente Beat -->
+          <div class="me-md-4 mb-3 mb-md-0">
+            <!-- <app-beat></app-beat> -->
+             <app-estetocospio></app-estetocospio>
+          </div>
+          <!-- Título -->
+          <h1 class="fw-bold display-5 rounded-4 px-4 py-2 shadow-lg mb-0"
+              style="background-color: var(--white); color: var(--primary-dark);">
+            Bienvenido al <span style="color: var(--accent);">Centro Médico Los Sables</span>
+          </h1>
+        </div>
+
+        <!-- Descripción -->
+        <p class="lead fs-5 mb-4" style="color: var(--white);">
+          Atención médica con <span class="fw-semibold text-white">calidad humana</span>. Confía tu salud en manos expertas y modernas.
+        </p>
+
+        <!-- Botones -->
+        <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
+          <a href="#contacto"
+             class="btn fw-semibold px-4 py-2 rounded-pill shadow d-inline-flex align-items-center"
+             style="background-color: var(--white); color: var(--primary-dark); border: none;">
+            <i class="bi bi-calendar-check me-2"></i> Agendar Cita
+          </a>
+          <a href="#servicios"
+             class="btn btn-outline-light text-white fw-semibold px-4 py-2 rounded-pill d-inline-flex align-items-center"
+             style="border-color: var(--white);">
+            Ver Servicios <i class="bi bi-chevron-right ms-2"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Columna Derecha: Imagen y tarjeta emergencias -->
+      <div class="col-lg-5 position-relative mt-4 mt-lg-0">
+        <img
+          src="assets/localizanos.avif"
+          alt="Clínica Los Sables - Atención Médica"
+          class="img-fluid rounded-4 shadow-lg w-100"
+        />
+
+        <!-- Tarjeta Emergencias -->
+        <div class="position-absolute top-0 start-0 rounded-3 p-3 shadow-lg"
+             style="background-color: var(--white); transform: translate(20px, 20px); max-width: 220px;">
+          <div class="d-flex align-items-center">
+            <div class="rounded-circle d-flex justify-content-center align-items-center me-3"
+                 style="width: 36px; height: 36px; background-color: var(--accent);">
+              <i class="bi bi-heart-fill border-danger text-white" style="font-size: 16px;"></i>
+            </div>
+            <div>
+               <div class="fw-bold bg-danger text-white rounded-3 px-2 py-1 text-dark">24/7</div>
+              <small class="text-muted bg-white rounded-3 px-2 py-1">Emergencias</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

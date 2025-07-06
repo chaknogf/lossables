@@ -1912,6 +1912,11 @@
   resolved "https://registry.yarnpkg.com/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.34.8.tgz#4cdb2cfae69cdb7b1a3cc58778e820408075e928"
   integrity sha512-U0FaE5O1BCpZSeE6gBl3c5ObhePQSfk9vDRToMmTkbhCOgW4jqvtS5LGyQ76L1fH8sM0keRp4uDTsbjiUyjk0g==
 
+"@scarf/scarf@^1.1.1":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@scarf/scarf/-/scarf-1.4.0.tgz#3bbb984085dbd6d982494538b523be1ce6562972"
+  integrity sha512-xxeapPiUXdZAE3che6f3xogoJPeZgig6omHEy1rIY5WVsB3H2BHNnZH+gHG6x91SCWyQCzWGsuL2Hh3ClO5/qQ==
+
 "@schematics/angular@19.2.15":
   version "19.2.15"
   resolved "https://registry.npmjs.org/@schematics/angular/-/angular-19.2.15.tgz"
@@ -4465,6 +4470,11 @@ log4js@^6.4.1:
     rfdc "^1.3.0"
     streamroller "^3.1.5"
 
+lottie-web@^5.13.0:
+  version "5.13.0"
+  resolved "https://registry.yarnpkg.com/lottie-web/-/lottie-web-5.13.0.tgz#441d3df217cc8ba302338c3f168e1a3af0f221d3"
+  integrity sha512-+gfBXl6sxXMPe8tKQm7qzLnUy5DUPJPKIyRHwtpCpyUEYjHYRJC/5gjUvdkuO2c3JllrPtHXH5UJJK8LRYl5yQ==
+
 lru-cache@^10.0.1, lru-cache@^10.2.0:
   version "10.4.3"
   resolved "https://registry.npmjs.org/lru-cache/-/lru-cache-10.4.3.tgz"
@@ -4476,6 +4486,13 @@ lru-cache@^5.1.1:
   integrity sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==
   dependencies:
     yallist "^3.0.2"
+
+lucide-angular@^0.525.0:
+  version "0.525.0"
+  resolved "https://registry.yarnpkg.com/lucide-angular/-/lucide-angular-0.525.0.tgz#10185bd3a8fc9fcb77fcc1f6f6f7541643f74316"
+  integrity sha512-Db6a3e6Z45Qlslh2I5YvmaIPZ3kSJojDos0lO3KzRW18YNguU28w3OZSPPglRRhBiS+HKuhQZjaJyqB/bqxfZg==
+  dependencies:
+    tslib "^2.3.0"
 
 magic-string@0.30.17:
   version "0.30.17"
@@ -4802,6 +4819,14 @@ neo-async@^2.6.2:
   version "2.6.2"
   resolved "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
+
+ngx-lottie@^20.0.0:
+  version "20.0.0"
+  resolved "https://registry.yarnpkg.com/ngx-lottie/-/ngx-lottie-20.0.0.tgz#fba8bd29e74dec117600b8f8882c457e9ef64efc"
+  integrity sha512-8BRgwXH98bjvRqm1RPgk1+3cWcwDmoHjM08/9klK2Bunq0bfyhpz38tub5RH5CK8yBtYjQna/7BB8z6d0kClFQ==
+  dependencies:
+    "@scarf/scarf" "^1.1.1"
+    tslib "^2.3.0"
 
 node-addon-api@^6.1.0:
   version "6.1.0"

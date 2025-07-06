@@ -1,0 +1,86 @@
+.hero-section {
+  background: linear-gradient(
+    to bottom right,
+    var(--hero-bg-start, var(--bs-primary)),
+    var(--hero-bg-end, var(--bs-secondary))
+  );
+}
+
+/* Tema claro */
+[data-bs-theme="light"] .hero-section {
+  --hero-bg-start: var(--bs-primary);   /* #1b8a96 */
+  --hero-bg-end: var(--bs-secondary);   /* #0d2240 */
+}
+
+/* Tema oscuro */
+[data-bs-theme="dark"] .hero-section {
+  --hero-bg-start: var(--bs-dark);      /* #0b213e */
+  --hero-bg-end: var(--bs-secondary);   /* #0d2240 */
+}
+
+.loading svg #front {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: dash 2s ease-in-out infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Contenedor central */
+.loading {
+  display: block;
+  justify-content: center;
+  margin-left: 4rem;
+  align-items: center;
+  height: 120px;
+
+}
+
+
+.loading svg polyline {
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Línea de fondo (gris suave o transparente) */
+.loading svg polyline#back {
+  stroke: rgba(0, 0, 0, 0.1);
+}
+
+/* Línea animada */
+.loading svg polyline#front {
+  stroke: #FF0000;
+  stroke-dasharray: 48, 144;
+  stroke-dashoffset: 192;
+  animation: dash_682 1.7s linear infinite;
+  filter: drop-shadow(2px 4px 6px rgba(210, 208, 208, 0.801)) opacity(0.8);
+}
+
+@keyframes dash_682 {
+  72.5% {
+    opacity: 0;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .loading svg {
+    width: 180px;
+    height: 180px;
+    margin-left: 0.2rem;
+  }
+}
+
+.lottie-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

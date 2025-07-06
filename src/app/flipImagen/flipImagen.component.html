@@ -1,0 +1,14 @@
+<div class="flip-card shadow-lg rounded-4 mx-auto">
+  <div class="flip-card-inner">
+    <!-- Cara frontal con imagen -->
+    <div class="flip-card-front bg-white rounded-4 shadow-sm p-0">
+      <img src="assets/localizanos.avif" alt="Doctor profesional" class="flip-img img-fluid z-index-1" />
+       <span [innerHTML]="locationIcon"  ></span>
+    </div>
+
+    <!-- Cara trasera con el mapa -->
+    <div class="flip-card-back bg-light rounded-4 shadow-sm p-0">
+      <app-mapa></app-mapa>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+.icono-servicio {
+  width: 64px;
+  height: 64px;
+  border-radius: 1rem;
+}
+
+.servicio-card:hover {
+  box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.075);
+  transform: translateY(-3px);
+  transition: all 0.3s ease-in-out;
+}

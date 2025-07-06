@@ -1,0 +1,99 @@
+<section id="contacto" class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="h1 fw-bold text-dark mb-3">Contáctanos</h2>
+      <p class="fs-5 text-secondary mx-auto" style="max-width: 720px;">
+        Estamos aquí para atenderte. Agenda tu cita o contáctanos para más información.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Formulario -->
+      <!-- <div class="col-lg-8">
+        <div class="bg-white rounded-4 shadow p-4 p-md-5">
+          <h3 class="h4 fw-bold text-dark mb-4">Agenda tu Cita</h3>
+          <form (ngSubmit)="enviarFormulario()" #form="ngForm" autocomplete="off">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Nombre completo</label>
+                <input type="text" class="form-control" name="nombre" [(ngModel)]="formData.nombre" required />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Teléfono</label>
+                <input type="tel" class="form-control" name="telefono" [(ngModel)]="formData.telefono" required />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" name="email" [(ngModel)]="formData.email" required />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Especialidad</label>
+                <select class="form-select" name="especialidad" [(ngModel)]="formData.especialidad" required>
+                  <option *ngFor="let esp of especialidades" [value]="esp.value">{{ esp.label }}</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Mensaje (opcional)</label>
+                <textarea class="form-control" rows="4" [(ngModel)]="formData.mensaje" name="mensaje"></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary w-100 d-flex justify-content-center align-items-center gap-2">
+                  <i class="bi bi-calendar-event"></i> Agendar Cita
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div> -->
+
+      <!-- Info -->
+      <div class="col-lg-4">
+        <div class="d-flex flex-column gap-3">
+          <div class="bg-white rounded-4 shadow p-3 d-flex align-items-start">
+            <div class="bg-primary text-white rounded-circle p-2 me-3">
+              <i class="bi bi-telephone-fill fs-5"></i>
+            </div>
+            <div>
+              <h5 class="fw-semibold text-dark mb-1">Teléfono</h5>
+              <a href="tel:+1234567890" class="text-primary">+1 (234) 567-890</a>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-4 shadow p-3 d-flex align-items-start">
+            <div class="bg-success text-white rounded-circle p-2 me-3">
+              <i class="bi bi-envelope-fill fs-5"></i>
+            </div>
+            <div>
+              <h5 class="fw-semibold text-dark mb-1">Email</h5>
+              <a href="mailto:info&#64;clinicalossabes.com" class="text-success">info&#64;clinicalossabes.com</a>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-4 shadow p-3 d-flex align-items-start">
+            <div class="bg-info text-white rounded-circle p-2 me-3">
+              <i class="bi bi-geo-alt-fill fs-5"></i>
+            </div>
+            <div>
+              <h5 class="fw-semibold text-dark mb-1">Dirección</h5>
+              <p class="text-secondary mb-0">Av. Principal 123<br />Ciudad, País</p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-4 shadow p-3 d-flex align-items-start">
+            <div class="bg-warning text-white rounded-circle p-2 me-3">
+              <i class="bi bi-clock-fill fs-5"></i>
+            </div>
+            <div>
+              <h5 class="fw-semibold text-dark mb-1">Horarios</h5>
+              <p class="text-secondary mb-0">
+                Lun - Vie: 8:00 - 18:00<br />
+                Sáb: 8:00 - 14:00<br />
+                Dom: Emergencias 24/7
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

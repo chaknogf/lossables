@@ -1,0 +1,26 @@
+<section id="servicios" class="py-5 bg-white">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="display-6 fw-bold text-dark mb-3">Nuestros Servicios</h2>
+      <p class="lead text-secondary mx-auto" style="max-width: 720px;">
+        Ofrecemos una amplia gama de servicios médicos especializados para cuidar tu salud integral.
+      </p>
+    </div>
+
+    <div class="row gy-4">
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let servicio of servicios">
+        <div class="bg-white rounded-4 shadow-sm p-4 h-100 servicio-card transition">
+          <div class="icono-servicio mb-4 d-flex align-items-center justify-content-center"
+               [ngClass]="servicio.bg">
+            <i class="bi" [ngClass]="servicio.icon + ' ' + servicio.color" style="font-size: 2rem;"></i>
+          </div>
+          <h3 class="h5 fw-bold text-dark mb-3">{{ servicio.titulo }}</h3>
+          <p class="text-secondary mb-4">{{ servicio.descripcion }}</p>
+          <a href="#" class="fw-semibold" [ngClass]="servicio.color">
+            Más información →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

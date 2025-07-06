@@ -1,7 +1,48 @@
-<app-nav></app-nav>
-<app-section1 />
-<div>
-<!-- <div style="height: 10vh; background:  #f1ecec;"></div>
-</div> -->
-<app-hover-carrusel />
+<!-- <app-nav></app-nav>
 
+<main class="container-fluid px-0">
+
+  <section class="w-100 py-3">
+    <app-section1></app-section1>
+  </section>
+
+
+  <section class="w-100 py-3 bg-white">
+    <app-flipImagen></app-flipImagen>
+  </section>
+
+
+  <section class="w-100 py-3 bg-light">
+    <app-hover-carrusel></app-hover-carrusel>
+  </section>
+</main> -->
+
+
+<!-- Encabezado de navegación -->
+<app-nav></app-nav>
+
+<!-- Botón de cambio de tema (flotante) -->
+<app-theme-toggle class="floating-toggle"></app-theme-toggle>
+
+<!-- Contenido principal enrutable -->
+
+<app-hero-section></app-hero-section>
+
+<app-stats-section></app-stats-section>
+
+<app-servicios-section></app-servicios-section>
+
+<app-about-section></app-about-section>
+
+<app-doctors-section></app-doctors-section>
+
+<app-contact-section></app-contact-section>
+
+<app-footer-section></app-footer-section>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<!-- Pie de página -->
+<!-- <app-footer></app-footer> -->

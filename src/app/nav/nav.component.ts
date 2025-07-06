@@ -1,30 +1,28 @@
-import { logoicon } from './../shared/icon';
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer, SafeHtml, SafeResourceUrl } from '@angular/platform-browser';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { logoicon } from '../shared/icon';
+import { CommonModule } from '@angular/common';
+import { logoSVG } from '../shared/logo';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css'],
-  standalone: true
+  standalone: true,
+  imports: [CommonModule],
 })
 export class NavComponent implements OnInit {
-
-
-  private sanitizarSvg(svg: string): SafeHtml {
-    return this.sanitizer.bypassSecurityTrustHtml(svg);
-  }
-
-  logoicon: SafeHtml = logoicon;
+  logoicon: SafeHtml = logoSVG
   link: string = 'contacto@clinicalossables.com';
+  isMenuOpen = false;
 
-  constructor(
-    private sanitizer: DomSanitizer
-  ) {
-    this.logoicon = this.sanitizer.bypassSecurityTrustHtml(logoicon);
+  constructor(private sanitizer: DomSanitizer) {
+    this.logoicon = this.sanitizer.bypassSecurityTrustHtml(logoSVG);
   }
 
-  ngOnInit() {
-  }
+  ngOnInit(): void { }
 
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 }

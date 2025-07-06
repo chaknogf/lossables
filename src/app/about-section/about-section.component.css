@@ -1,0 +1,13 @@
+/* Estilos suaves para la transición */
+.btn-primary {
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0b5ed7;
+}
+
+img {
+  max-height: 400px;
+  object-fit: cover;
+}

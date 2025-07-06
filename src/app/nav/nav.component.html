@@ -1,45 +1,56 @@
-<header class="navbar navbar-expand-lg navbar-light bg-light ">
-  <div class="navbar-header  w-100">
-    <div class="d-flex align-items-center justify-content-around w-100">
-      <a class="nav-link ocultar-en-movil" href="tel:+50212345678">📞 +502 1234-5678</a>
-      <a class="navbar-brand d-flex align-items-center" href="#">
-        <span [innerHTML]="logoicon"></span>
-        <span> Centro Médico Los Sables</span>
-      </a>
-      <a class="nav-link ocultar-en-movil" href="mailto:contacto@lossables.com">
-        <span>✉️ {{link}}</span>
-      </a>
-    </div>
-    <nav class="navbar navbar-expand-lg navbar-secondary bg-primary w-100 mt-0">
-      <div class="container-fluid justify-content-center flex-column ">
-        <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
-          aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon "></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-center" id="navbarMenu">
-          <ul class="navbar-nav me-auto ">
-            <li class="nav-item">
-              <a class="nav-link text-white bg-hover" href="#">Consulta General</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white bg-hover" href="#">Pediatría</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white bg-hover" href="#">Laboratorio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white bg-hover" href="#">Rayos X</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white bg-hover" href="#">Especialistas</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white bg-hover" href="#">Emergencias</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+<header class="navbar navbar-expand-lg navbar-light bg-light flex-column fixed-top shadow-sm">
+  <!-- Contacto y logo -->
+  <div class="container d-flex justify-content-between align-items-center py-2">
+    <a class="nav-link d-none d-md-block" href="tel:+50212345678">📞 +502 1234-5678</a>
 
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+      <span [innerHTML]="logoicon" class="d-inline-block" style="width: 40px;"></span>
+      <div class="d-inline-block align-middle text-center lh-1">
+        <span class="montserrat d-block m-0 p-0">CENTRO MÉDICO</span>
+        <span class="robotos d-block m-0 p-0">LOS SABLES</span>
+      </div>
+
+    </a>
+
+    <a class="nav-link d-none d-md-block" [href]="'mailto:' + link">✉️ {{ link }}</a>
+
+    <!-- Botón hamburguesa -->
+    <button
+      class="navbar-toggler d-md-none"
+      type="button"
+      (click)="toggleMenu()"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
   </div>
+
+
+  <!-- Menú horizontal o móvil -->
+  <nav class="w-100 bg-primary">
+    <div class="container">
+      <div class="collapse navbar-collapse d-none d-lg-flex justify-content-center py-2" id="navbarMenu">
+        <ul class="navbar-nav flex-row gap-3">
+          <li class="nav-item"><a class="nav-link text-white" href="#inicio">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#servicios">Servicios</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#nosotros">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#doctores">Doctores</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#contacto">Contacto</a></li>
+          <li class="nav-item">
+            <a class="btn btn-light btn-sm rounded-pill ms-2" href="#cita">Agendar Cita</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Menú móvil -->
+      <div *ngIf="isMenuOpen" class="d-lg-none bg-white shadow-sm rounded-bottom p-3">
+        <a class="d-block py-2 text-dark" href="#inicio">Inicio</a>
+        <a class="d-block py-2 text-dark" href="#servicios">Servicios</a>
+        <a class="d-block py-2 text-dark" href="#nosotros">Nosotros</a>
+        <a class="d-block py-2 text-dark" href="#doctores">Doctores</a>
+        <a class="d-block py-2 text-dark" href="#contacto">Contacto</a>
+        <a class="btn btn-primary w-100 mt-2" href="#cita">Agendar Cita</a>
+      </div>
+    </div>
+  </nav>
 </header>
