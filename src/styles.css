@@ -142,6 +142,28 @@
   --bs-form-invalid-border-color: #ff6b6b;
 }
 
+/* Estilo base (modo claro) */
+.logo-icon .logo-fill-1 {
+  fill: #0b213e;
+}
+.logo-icon .logo-fill-2 {
+  fill: #0d2240;
+}
+.logo-icon .logo-fill-3 {
+  fill: #1b8a96;
+}
+
+/* Tema oscuro: se aplica cuando [data-bs-theme="dark"] */
+[data-bs-theme="dark"] .logo-icon .logo-fill-1 {
+  fill: #ffffff; /* Parte principal */
+}
+[data-bs-theme="dark"] .logo-icon .logo-fill-2 {
+  fill: #aab4c0; /* Fondo y secciones secundarias */
+}
+[data-bs-theme="dark"] .logo-icon .logo-fill-3 {
+  fill: #33c0cf; /* Acento primario */
+}
+
 *,
 *::before,
 *::after {
@@ -12134,9 +12156,9 @@ legend {
 .montserrat {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;               /* similar grosor al Roboto bold */
-  font-size: 1rem;
+  font-size: 0.92rem;
   line-height: 1.2;
-  letter-spacing: 0.05rem;
+  letter-spacing: 0.02rem;
 }
 
 .robotos {
@@ -12147,4 +12169,6 @@ legend {
   letter-spacing: 0.3rem;
 }
 
-
+.text-footer-muted {
+  color: #aab4c0 !important; /* gris azulado suave con buen contraste */
+}

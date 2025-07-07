@@ -1,13 +1,20 @@
-<footer class="bg-dark text-white py-5">
+<footer class="bg-dark text-light py-5" data-bs-theme="dark">
   <div class="container">
     <div class="row g-4 mb-4">
+
       <!-- Marca -->
       <div class="col-lg-6">
         <div class="d-flex align-items-center mb-3">
-          <i class="bi bi-heart-fill text-primary fs-4 me-2"></i>
-          <h3 class="h4 fw-bold mb-0">Clínica Los Sabes</h3>
+          <!-- <i class="bi bi-heart-fill text-primary fs-4 me-2"></i> -->
+           <span [innerHTML]="logoicon" class="d-inline-block" style="width: 40px;"></span>
+          <h3 class="h4 fw-bold mb-0 text-light">
+            <div class="d-inline-block align-middle text-center lh-1">
+              <span class="montserrat d-block m-0 p-0">CENTRO MÉDICO</span>
+              <span class="robotos d-block m-0 p-0">LOS SABLES</span>
+            </div>
+          </h3>
         </div>
-        <p class="text-secondary mb-4">
+       <p class="text-footer-muted mb-4">
           Tu salud es nuestra prioridad. Brindamos atención médica integral con tecnología de vanguardia y un equipo humano comprometido.
         </p>
         <div class="d-flex gap-2">
@@ -19,20 +26,20 @@
 
       <!-- Servicios -->
       <div class="col-md-3 col-6">
-        <h5 class="fw-semibold mb-3">Servicios</h5>
-        <ul class="list-unstyled text-secondary">
-          <li><a href="#" class="text-secondary text-decoration-none hover-link">Cardiología</a></li>
-          <li><a href="#" class="text-secondary text-decoration-none hover-link">Medicina General</a></li>
-          <li><a href="#" class="text-secondary text-decoration-none hover-link">Pediatría</a></li>
-          <li><a href="#" class="text-secondary text-decoration-none hover-link">Ginecología</a></li>
-          <li><a href="#" class="text-secondary text-decoration-none hover-link">Emergencias</a></li>
+        <h5 class="fw-semibold mb-3 text-light">Servicios</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-decoration-none link-light link-hover">Cardiología</a></li>
+          <li><a href="#" class="text-decoration-none link-light link-hover">Medicina General</a></li>
+          <li><a href="#" class="text-decoration-none link-light link-hover">Pediatría</a></li>
+          <li><a href="#" class="text-decoration-none link-light link-hover">Ginecología</a></li>
+          <li><a href="#" class="text-decoration-none link-light link-hover">Emergencias</a></li>
         </ul>
       </div>
 
       <!-- Contacto -->
       <div class="col-md-3 col-6">
-        <h5 class="fw-semibold mb-3">Contacto</h5>
-        <ul class="list-unstyled text-secondary">
+        <h5 class="fw-semibold mb-3 text-light">Contacto</h5>
+        <ul class="list-unstyled text-light-emphasis">
           <li class="d-flex align-items-center mb-2">
             <i class="bi bi-telephone-fill text-primary me-2"></i>
             +1 (234) 567-890
@@ -41,20 +48,27 @@
             <i class="bi bi-envelope-fill text-primary me-2"></i>
             info&#64;clinicalossabes.com
           </li>
-          <li class="d-flex align-items-start">
-            <i class="bi bi-geo-alt-fill text-primary me-2 mt-1"></i>
-            Av. Principal 123, Ciudad, País
-          </li>
+           <li class="d-flex align-items-start">
+  <i class="bi bi-geo-alt-fill text-primary me-2 mt-1" aria-hidden="true"></i>
+  <a
+    href="https://maps.app.goo.gl/BQ3yLriWQF3LPt3W7"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="text-decoration-none link-light link-hover"
+  >
+    Zona 3, 1 calle, Tecpán Guatemala
+  </a>
+</li>
         </ul>
       </div>
     </div>
 
     <!-- Créditos -->
-    <div class="border-top border-secondary pt-4 d-flex flex-column flex-md-row justify-content-between align-items-center">
-      <p class="mb-2 mb-md-0 text-secondary">&copy; 2024 Clínica Los Sabes. Todos los derechos reservados.</p>
+    <div class="border-top pt-4 d-flex flex-column flex-md-row justify-content-between align-items-center border-light-subtle">
+      <p class="mb-2 mb-md-0 text-light-emphasis">&copy; 2024 Clínica Los Sabes. Todos los derechos reservados.</p>
       <div class="d-flex gap-3">
-        <a href="#" class="text-secondary text-decoration-none hover-link">Política de Privacidad</a>
-        <a href="#" class="text-secondary text-decoration-none hover-link">Términos de Servicio</a>
+        <a href="#" class="text-light-emphasis text-decoration-none link-hover">Política de Privacidad</a>
+        <a href="#" class="text-light-emphasis text-decoration-none link-hover">Términos de Servicio</a>
       </div>
     </div>
   </div>
