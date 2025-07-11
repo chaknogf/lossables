@@ -1,6 +1,7 @@
 
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;1,100&display=swap');
+
 /*!
  * Bootswatch v5.3.7 (https://bootswatch.com)
  * Theme: minty
@@ -327,7 +328,9 @@ button,
 [type=button],
 [type=submit] {
   -webkit-appearance: button;
+  appearance: button;
 }
+
 button:not(:disabled),
 [type=button]:not(:disabled),
 [type=submit]:not(:disabled) {
@@ -373,9 +376,15 @@ textarea {
   padding: 0;
 }
 
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
 ::file-selector-button {
   font: inherit;
   -webkit-appearance: button;
+  appearance: button;
 }
 
 iframe {
