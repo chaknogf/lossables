@@ -40,7 +40,10 @@
             "prerender": true,
             "ssr": {
               "entry": "src/server.ts"
-            }
+            },
+            "allowedCommonJsDependencies": [
+      "lottie-web"
+    ]
           },
           "configurations": {
             "production": {
