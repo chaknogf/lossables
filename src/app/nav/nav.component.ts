@@ -13,7 +13,7 @@ import { logoSVG } from '../shared/logo';
 })
 export class NavComponent implements OnInit {
   logoicon: SafeHtml = logoSVG
-  link: string = 'contacto@cmsables.com';
+  link: string = 'centromedicolossables@gmail.com';
   isMenuOpen = false;
 
   constructor(private sanitizer: DomSanitizer) {

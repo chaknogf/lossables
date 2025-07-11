@@ -2,7 +2,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import '@iconify/iconify';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { brainIcon, brillosIcon, cirujanoIcon, curitasIcon, dermaIcon, dienteicon, labIcon, medicalIcon, ositoTeddyIcon, psicoIcon, pulmonIcon, reumaIcon, vaginaIcon } from '../shared/icon';
+import { anestesiaIcon, brainIcon, brillosIcon, cirujanoIcon, curitasIcon, dermaIcon, diabetesIcon, dienteicon, labIcon, medicalIcon, ositoTeddyIcon, psicoIcon, pulmonIcon, reumaIcon, vaginaIcon } from '../shared/icon';
 
 interface Servicio {
   icon: SafeHtml;
@@ -10,6 +10,7 @@ interface Servicio {
   color: string;
   titulo: string;
   descripcion: string;
+  clase?: string;
 }
 @Component({
   selector: 'app-servicios-section',
@@ -34,6 +35,8 @@ export class ServiciosSectionComponent {
   brain: SafeHtml;
   pulmon: SafeHtml;
   psico: SafeHtml;
+  diabetes: SafeHtml;
+  anestesia: SafeHtml;
   servicios: Servicio[];
 
   constructor(private sanitizer: DomSanitizer) {
@@ -50,97 +53,116 @@ export class ServiciosSectionComponent {
     this.brain = this.sanitizer.bypassSecurityTrustHtml(brainIcon);
     this.pulmon = this.sanitizer.bypassSecurityTrustHtml(pulmonIcon);
     this.psico = this.sanitizer.bypassSecurityTrustHtml(psicoIcon);
+    this.diabetes = this.sanitizer.bypassSecurityTrustHtml(diabetesIcon);
+    this.anestesia = this.sanitizer.bypassSecurityTrustHtml(anestesiaIcon);
     this.servicios = [
       {
         icon: this.vaginaIcon,
-        bg: 'bg-danger-subtle',
-        color: 'text-danger',
+        bg: 'bg-gradient-federal',
+        color: '',
         titulo: 'Ginecología y Obstetricia',
-        descripcion: 'Cuidado integral para la salud femenina, embarazo y parto.'
+        descripcion: 'Cuidado integral para la salud femenina, embarazo y parto.',
+        clase: 'gineco'
       },
       {
         icon: this.osito,
         bg: 'bg-info-subtle',
-        color: 'text-info',
+        color: '',
         titulo: 'Pediatría',
-        descripcion: 'Atención médica especializada para niños y adolescentes.'
+        descripcion: 'Atención médica especializada para niños y adolescentes.',
+        clase: 'pediatria'
       },
       {
         icon: this.medical,
-        bg: 'bg-primary-subtle',
-        color: 'text-primary',
+        bg: 'bg-gradient-sky',
+        color: '',
         titulo: 'Medicina Interna',
         descripcion: 'Diagnóstico y tratamiento de enfermedades en adultos.'
       },
       {
         icon: this.cirujano,
-        bg: 'bg-secondary-subtle',
-        color: 'text-success',
+        bg: 'bg-gradient-cyan',
+        color: '',
         titulo: 'Cirugía',
-        descripcion: 'Procedimientos quirúrgicos generales con atención especializada.'
+        descripcion: 'Procedimientos quirúrgicos generales con atención especializada.',
+        clase: 'cirugia'
       },
       {
         icon: this.curita,
-        bg: 'bg-warning-subtle',
-        color: 'text-warning',
+        bg: 'bg-gradient-reverse',
+        color: '',
         titulo: 'Cirugía Videolaparoscópica',
         descripcion: 'Cirugías mínimamente invasivas con tecnología avanzada.'
       },
       {
         icon: this.brillo,
-        bg: 'bg-success-subtle',
-        color: 'text-success',
+        bg: 'bg-gradient-federal',
+        color: '',
         titulo: 'Cirugía Plástica',
         descripcion: 'Procedimientos estéticos y reconstructivos profesionales.'
       },
       {
         icon: this.diente,
-        bg: 'bg-info-subtle',
-        color: 'text-info',
+        bg: 'bg-gradient-cyan',
+        color: '',
         titulo: 'Odontología',
         descripcion: 'Salud dental integral para niños y adultos.'
       },
       {
         icon: this.lab,
-        bg: 'bg-danger-subtle',
-        color: 'text-danger',
+        bg: 'bg-gradient-soft',
+        color: '',
         titulo: 'Laboratorio Clínico',
         descripcion: 'Pruebas diagnósticas rápidas y confiables.'
       },
       {
         icon: this.dermis,
-        bg: 'bg-primary-subtle',
-        color: 'text-primary',
+        bg: 'bg-gradient-reverse',
+        color: '',
         titulo: 'Dermatología',
         descripcion: 'Diagnóstico y tratamiento de enfermedades de la piel.'
       },
       {
         icon: this.reuma,
-        bg: 'bg-success-subtle',
-        color: 'text-success',
+        bg: 'bg-gradient-sky',
+        color: '',
         titulo: 'Reumatología',
         descripcion: 'Manejo de enfermedades articulares y autoinmunes.'
       },
       {
         icon: this.brain,
-        bg: 'bg-warning-subtle',
-        color: 'text-warning',
+        bg: 'bg-gradient-federal',
+        color: '',
         titulo: 'Neurología',
         descripcion: 'Diagnóstico y atención de trastornos del sistema nervioso.'
       },
       {
         icon: this.pulmon,
-        bg: 'bg-info-subtle',
-        color: 'text-info',
+        bg: 'bg-gradient-sky',
+        color: '',
         titulo: 'Neumología',
         descripcion: 'Especialistas en enfermedades respiratorias y pulmonares.'
       },
       {
         icon: this.psico,
-        bg: 'bg-secondary-subtle',
-        color: 'text-secondary',
+        bg: 'bg-gradient-soft',
+        color: '',
         titulo: 'Psicología',
         descripcion: 'Apoyo emocional y salud mental personalizada.'
+      },
+      {
+        icon: this.diabetes,
+        bg: 'bg-gradient-cyan',
+        color: '',
+        titulo: 'Endocrinología',
+        descripcion: 'Diagnóstico y tratamiento de trastornos hormonales como diabetes, tiroides y obesidad.'
+      },
+      {
+        icon: this.anestesia,
+        bg: 'bg-gradient-reverse',
+        color: '',
+        titulo: 'Anestesiología',
+        descripcion: 'Especialistas en manejo del dolor y sedación segura durante procedimientos quirúrgicos.'
       }
     ];
   }

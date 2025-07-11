@@ -14,3 +14,20 @@
     border-radius: 0.5rem;
   }
 }
+
+.mapa-ratio {
+    max-height: 60vh; /* máximo 60% del alto de la ventana */
+    height: auto;
+  }
+
+  @media (min-width: 768px) {
+    .mapa-ratio {
+      max-height: 500px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .mapa-ratio {
+      max-height: 650px;
+    }
+  }

@@ -74,6 +74,17 @@
   --bs-form-valid-border-color: #1b8a96;
   --bs-form-invalid-color: #dc3545;
   --bs-form-invalid-border-color: #dc3545;
+    /* colores para servicios */
+/* CSS HEX */
+--federal-blue: #03045eff;
+--marian-blue: #023e8aff;
+--honolulu-blue: #0077b6ff;
+--blue-green: #0096c7ff;
+--pacific-cyan: #00b4d8ff;
+--vivid-sky-blue: #48cae4ff;
+--non-photo-blue: #90e0efff;
+--non-photo-blue-2: #ade8f4ff;
+--light-cyan: #caf0f8ff;
 }
 
 [data-bs-theme=dark] {
@@ -140,6 +151,72 @@
   --bs-form-valid-border-color: #1b8a96;
   --bs-form-invalid-color: #ff6b6b;
   --bs-form-invalid-border-color: #ff6b6b;
+    /* colores para servicios */
+/* CSS HEX */
+--federal-blue: #03045eff;
+--marian-blue: #023e8aff;
+--honolulu-blue: #0077b6ff;
+--blue-green: #0096c7ff;
+--pacific-cyan: #00b4d8ff;
+--vivid-sky-blue: #48cae4ff;
+--non-photo-blue: #90e0efff;
+--non-photo-blue-2: #ade8f4ff;
+--light-cyan: #caf0f8ff;
+}
+
+/* Fondos personalizados */
+.bg-federal-blue {
+  background-color: var(--federal-blue) !important;
+}
+.bg-marian-blue {
+  background-color: var(--marian-blue) !important;
+}
+.bg-honolulu-blue {
+  background-color: var(--honolulu-blue) !important;
+}
+.bg-blue-green {
+  background-color: var(--blue-green) !important;
+}
+.bg-pacific-cyan {
+  background-color: var(--pacific-cyan) !important;
+}
+.bg-vivid-sky-blue {
+  background-color: var(--vivid-sky-blue) !important;
+}
+
+.bg-gradient-federal {
+  background: linear-gradient(135deg, var(--federal-blue), var(--marian-blue)) !important;
+  color: var(--light-cyan) !important;
+}
+
+.bg-gradient-sky {
+  background: linear-gradient(135deg, var(--blue-green), var(--vivid-sky-blue)) !important;
+  color: var(--federal-blue) !important;
+}
+
+.bg-gradient-cyan {
+  background: linear-gradient(135deg, var(--pacific-cyan), var(--non-photo-blue)) !important;
+  color: var(--federal-blue) !important;
+}
+
+.bg-gradient-soft {
+  background: linear-gradient(135deg, var(--non-photo-blue-2), var(--light-cyan)) !important;
+  color: var(--federal-blue) !important;
+}
+
+.bg-gradient-reverse {
+  background: linear-gradient(135deg, var(--light-cyan), var(--pacific-cyan)) !important;
+  color: var(--federal-blue) !important;
+}
+/* Colores de texto claros */
+.text-light-cyan {
+  color: var(--light-cyan) !important;
+}
+.text-non-photo-blue {
+  color: var(--non-photo-blue) !important;
+}
+.text-non-photo-blue-2 {
+  color: var(--non-photo-blue-2) !important;
 }
 
 /* Estilo base (modo claro) */
@@ -12171,4 +12248,8 @@ legend {
 
 .text-footer-muted {
   color: #aab4c0 !important; /* gris azulado suave con buen contraste */
+}
+
+a[href^="tel:"] {
+  text-decoration: none;
 }

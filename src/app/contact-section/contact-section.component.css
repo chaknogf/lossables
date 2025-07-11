@@ -10,3 +10,8 @@ select:focus {
   border-color: #0d6efd !important;
   box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
+
+.bg-map-gradient {
+  background: linear-gradient(135deg, var(--marian-blue), var(--blue-green));
+  color: white;
+}
