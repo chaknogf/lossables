@@ -15,7 +15,7 @@ export class DoctorsSectionComponent {
       especialidad: 'Cardióloga',
       descripcion: 'Especialista en cardiología con 12 años de experiencia en diagnóstico y tratamiento cardiovascular.',
       color: 'primary',
-      imagen: 'assets/img/dr-maria.jpg',
+      imagen: 'assets/med1.avif',
       perfil: '#'
     },
     {
@@ -23,7 +23,7 @@ export class DoctorsSectionComponent {
       especialidad: 'Medicina General',
       descripcion: 'Médico general con enfoque en medicina preventiva y atención familiar integral.',
       color: 'success',
-      imagen: 'assets/img/dr-carlos.jpg',
+      imagen: 'assets/med2.avif',
       perfil: '#'
     },
     {
@@ -31,7 +31,7 @@ export class DoctorsSectionComponent {
       especialidad: 'Pediatra',
       descripcion: 'Especialista en pediatría con experiencia en cuidado infantil y desarrollo pediátrico.',
       color: 'info',
-      imagen: 'assets/img/dr-ana.jpg',
+      imagen: 'assets/med4.avif',
       perfil: '#'
     }
   ];
