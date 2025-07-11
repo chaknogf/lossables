@@ -11,9 +11,10 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   styleUrls: ['./footer-section.component.css']
 })
 export class FooterSectionComponent {
-    logoicon: SafeHtml = logoSVG
+  logoicon: SafeHtml = logoSVG
   link: string = 'contacto@clinicalossables.com';
   isMenuOpen = false;
+  public mail: string = 'centromedicolossables@gmail.com';
 
   constructor(private sanitizer: DomSanitizer) {
     this.logoicon = this.sanitizer.bypassSecurityTrustHtml(logoSVG);
