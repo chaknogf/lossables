@@ -1,4 +1,5 @@
-import { Component, ElementRef, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, AfterViewInit, ViewChild, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import lottie from 'lottie-web';
 
 @Component({
@@ -11,14 +12,17 @@ import lottie from 'lottie-web';
 export class EstetocospioComponent implements AfterViewInit {
   @ViewChild('lottieContainer', { static: true }) container!: ElementRef;
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
+
   ngAfterViewInit() {
-    lottie.loadAnimation({
-      container: this.container.nativeElement,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: 'assets/animaciones/esteto.json'
-    });
+    if (isPlatformBrowser(this.platformId)) {
+      lottie.loadAnimation({
+        container: this.container.nativeElement,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'assets/animaciones/esteto.json'
+      });
+    }
   }
 }
-

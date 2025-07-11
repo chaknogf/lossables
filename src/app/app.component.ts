@@ -10,6 +10,7 @@ import { DoctorsSectionComponent } from './doctors-section/doctors-section.compo
 import { ContactSectionComponent } from './contact-section/contact-section.component';
 import { FooterSectionComponent } from './footer-section/footer-section.component';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,

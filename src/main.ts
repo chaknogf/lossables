@@ -11,7 +11,8 @@ bootstrapApplication(AppComponent, {
     provideClientHydration(),
     // provideRouter(AppRoutes),
     provideLottieOptions({
-      player: () => player,
+
+      player: () => import('lottie-web')
     }),
   ],
 });
