@@ -37,7 +37,7 @@ export class DoctorsSectionComponent {
     {
       nombre: 'Dra. Victoria Xiquitá',
       especialidad: 'Anestesiología',
-      descripcion: 'Especializa en la administración de anestesia, con experiencia en el manejo integral del dolor y en la atención médica perioperatoria. Su labor se enfoca en brindar seguridad, confort y cuidado personalizado antes, durante y después de cada procedimiento.',
+      descripcion: 'Especializada en la administración de anestesia, con experiencia en el manejo integral del dolor y en la atención médica perioperatoria. Su labor se enfoca en brindar seguridad, confort y cuidado personalizado antes, durante y después de cada procedimiento.',
       color: 'info',
       imagen: 'assets/victoria.avif',
       perfil: '#'
