@@ -57,6 +57,14 @@ export class DoctorsSectionComponent {
       color: 'info',
       imagen: 'assets/fernanda.avif',
       perfil: '#'
+    },
+    {
+      nombre: 'Dr. Rolando Palacio',
+      especialidad: 'Cirugía General',
+      descripcion: 'Apasionado por la precisión quirúrgica y el bienestar de sus pacientes, ofrece una atención médica integral respaldada por años de experiencia. Especialista en laparoscopia avanzada, combina técnica, innovación y compromiso para brindar soluciones quirúrgicas menos invasivas, con rápida recuperación y excelentes resultados.',
+      color: 'info',
+      imagen: 'assets/Rolando.avif',
+      perfil: '#'
     }
   ];
 }
