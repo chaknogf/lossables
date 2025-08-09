@@ -2,7 +2,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import '@iconify/iconify';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { anestesiaIcon, brainIcon, brillosIcon, cirujanoIcon, curitasIcon, dermaIcon, diabetesIcon, dienteicon, labIcon, medicalIcon, ositoTeddyIcon, psicoIcon, pulmonIcon, reumaIcon, vaginaIcon } from '../shared/icon';
+import { anestesiaIcon, brainIcon, brillosIcon, cirujanoIcon, curitasIcon, dermaIcon, diabetesIcon, dienteicon, labIcon, medicalIcon, ositoTeddyIcon, psicoIcon, pulmonIcon, reumaIcon, vaginaIcon, maxiloicon } from '../shared/icon';
 
 interface Servicio {
   icon: SafeHtml;
@@ -37,6 +37,7 @@ export class ServiciosSectionComponent {
   psico: SafeHtml;
   diabetes: SafeHtml;
   anestesia: SafeHtml;
+  maxilo: SafeHtml;
   servicios: Servicio[];
 
   constructor(private sanitizer: DomSanitizer) {
@@ -55,6 +56,7 @@ export class ServiciosSectionComponent {
     this.psico = this.sanitizer.bypassSecurityTrustHtml(psicoIcon);
     this.diabetes = this.sanitizer.bypassSecurityTrustHtml(diabetesIcon);
     this.anestesia = this.sanitizer.bypassSecurityTrustHtml(anestesiaIcon);
+    this.maxilo = this.sanitizer.bypassSecurityTrustHtml(maxiloicon);
     this.servicios = [
       {
         icon: this.vaginaIcon,
@@ -70,6 +72,14 @@ export class ServiciosSectionComponent {
         color: '',
         titulo: 'Pediatría',
         descripcion: 'Atención médica especializada para niños y adolescentes.',
+        clase: 'pediatria'
+      },
+      {
+        icon: this.maxilo,
+        bg: 'bg-info-subtle',
+        color: '',
+        titulo: 'Maxilofacial',
+        descripcion: 'Soluciones quirúrgicas para problemas dentales, mandibulares y faciales, mejorando funcionalidad, estética y salud oral integral',
         clase: 'pediatria'
       },
       {

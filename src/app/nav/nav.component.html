@@ -34,11 +34,17 @@
           <li class="nav-item"><a class="nav-link text-white" href="#inicio">Inicio</a></li>
           <li class="nav-item"><a class="nav-link text-white" href="#servicios">Servicios</a></li>
           <li class="nav-item"><a class="nav-link text-white" href="#nosotros">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#laboratorio">Laboratorio</a></li>
           <li class="nav-item"><a class="nav-link text-white" href="#doctores">Doctores</a></li>
           <li class="nav-item"><a class="nav-link text-white" href="#contacto">Contacto</a></li>
-          <li class="nav-item">
-            <a class="btn btn-light btn-sm rounded-pill ms-2" href="#cita">Agendar Cita</a>
-          </li>
+         <li class="nav-item">
+  <button
+    class="btn btn-light btn-sm rounded-pill ms-2"
+    (click)="abrirModal()"
+  >
+    Agendar Cita
+  </button>
+</li>
         </ul>
       </div>
 
@@ -49,8 +55,109 @@
         <a class="d-block py-2 text-dark" href="#nosotros">Nosotros</a>
         <a class="d-block py-2 text-dark" href="#doctores">Doctores</a>
         <a class="d-block py-2 text-dark" href="#contacto">Contacto</a>
-        <a class="btn btn-primary w-100 mt-2" href="#cita">Agendar Cita</a>
+        <a class="btn btn-primary w-100 mt-2" href="https://wa.me/50234826151?text=Hola,%20quiero%20agendar%20una%20cita."
+              target="_blank"
+              rel="noopener noreferrer">
+              Agendar Cita
+            </a>
       </div>
     </div>
   </nav>
 </header>
+
+
+
+
+
+<!-- Modal Bootstrap -->
+<div
+  class="modal fade"
+  id="modalCita"
+  tabindex="-1"
+  aria-labelledby="modalCitaLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <form
+      (ngSubmit)="enviarWhatsapp()"
+      #formCita="ngForm"
+      class="modal-content needs-validation"
+      novalidate
+    >
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalCitaLabel">Agendar Cita</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Nombre -->
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre completo</label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            class="form-control"
+            required
+            [(ngModel)]="form.nombre"
+            #nombre="ngModel"
+          />
+          <div class="invalid-feedback d-block" *ngIf="nombre.invalid && nombre.touched">
+            Por favor, ingresa tu nombre.
+          </div>
+        </div>
+
+        <!-- Teléfono -->
+        <div class="mb-3">
+          <label for="telefono" class="form-label">Teléfono</label>
+          <input
+            type="tel"
+            id="telefono"
+            name="telefono"
+            placeholder="Ejemplo: 50234826151"
+            class="form-control"
+            required
+            pattern="^[0-9]{8,10}$"
+            [(ngModel)]="form.telefono"
+            #telefono="ngModel"
+          />
+          <div class="invalid-feedback d-block" *ngIf="telefono.invalid && telefono.touched">
+            El teléfono debe tener entre 8 y 10 dígitos, solo números.
+          </div>
+        </div>
+
+        <!-- Especialidad -->
+        <div class="mb-3">
+          <label for="especialidad" class="form-label">Especialidad</label>
+          <select
+            id="especialidad"
+            name="especialidad"
+            class="form-select"
+            required
+            [(ngModel)]="form.especialidad"
+            #especialidad="ngModel"
+          >
+            <option value="" disabled>Selecciona una especialidad</option>
+            <option value="Medicina General">Medicina General</option>
+            <option value="Pediatría">Pediatría</option>
+            <option value="Ginecología">Ginecología</option>
+            <option value="Odontología">Odontología</option>
+          </select>
+          <div class="invalid-feedback d-block" *ngIf="especialidad.invalid && especialidad.touched">
+            Por favor, selecciona una especialidad.
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="formCita.invalid"
+        >
+          Enviar Cita
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

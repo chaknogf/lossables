@@ -65,6 +65,14 @@ export class DoctorsSectionComponent {
       color: 'info',
       imagen: 'assets/Rolando.avif',
       perfil: '#'
+    },
+    {
+      nombre: 'Dra Elisa Chonay & Dra. Stefany De Villa',
+      especialidad: 'Cirugía Maxilofacial',
+      descripcion: 'Expertas en el diagnóstico y tratamiento de afecciones dentales, mandibulares y faciales. Su enfoque combina precisión quirúrgica con un trato humano y cercano, garantizando resultados funcionales y estéticos que mejoran la salud y la confianza de cada paciente.',
+      color: 'info',
+      imagen: 'assets/maxilo.avif',
+      perfil: '#'
     }
   ];
 }

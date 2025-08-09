@@ -9,6 +9,7 @@ import { AboutSectionComponent } from './about-section/about-section.component';
 import { DoctorsSectionComponent } from './doctors-section/doctors-section.component';
 import { ContactSectionComponent } from './contact-section/contact-section.component';
 import { FooterSectionComponent } from './footer-section/footer-section.component';
+import { LaboratorioComponent } from "./laboratorio/laboratorio.component";
 
 
 @Component({
@@ -23,8 +24,7 @@ import { FooterSectionComponent } from './footer-section/footer-section.componen
     AboutSectionComponent,
     DoctorsSectionComponent,
     ContactSectionComponent,
-    FooterSectionComponent
-  ],
+    FooterSectionComponent, LaboratorioComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
