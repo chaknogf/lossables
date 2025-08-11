@@ -10,7 +10,11 @@ import { DoctorsSectionComponent } from './doctors-section/doctors-section.compo
 import { ContactSectionComponent } from './contact-section/contact-section.component';
 import { FooterSectionComponent } from './footer-section/footer-section.component';
 import { LaboratorioComponent } from "./laboratorio/laboratorio.component";
+import { injectSpeedInsights } from '@vercel/speed-insights';
 
+
+
+injectSpeedInsights();
 
 @Component({
   selector: 'app-root',
@@ -28,4 +32,6 @@ import { LaboratorioComponent } from "./laboratorio/laboratorio.component";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent { }
+export class AppComponent {
+
+}

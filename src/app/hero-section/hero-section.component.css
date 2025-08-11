@@ -1,86 +1,395 @@
+/* Variables CSS personalizadas */
+:root {
+  --primary-color: #2c5aa0;
+  --secondary-color: #1e3d72;
+  --accent-color: #00d4aa;
+  --success-color: #28a745;
+  --light-bg: #f8fafc;
+  --text-dark: #2d3748;
+  --text-muted: #718096;
+  --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 20px 60px rgba(0, 0, 0, 0.15);
+  --border-radius: 1rem;
+}
+
+/* Sección hero principal */
 .hero-section {
-  background: linear-gradient(
-    to bottom right,
-    var(--hero-bg-start, var(--bs-primary)),
-    var(--hero-bg-end, var(--bs-secondary))
-  );
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  min-height: 100vh;
+  position: relative;
 }
 
-/* Tema claro */
-[data-bs-theme="light"] .hero-section {
-  --hero-bg-start: var(--bs-primary);   /* #1b8a96 */
-  --hero-bg-end: var(--bs-secondary);   /* #0d2240 */
+/* Gradiente de fondo */
+.hero-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at top left, rgba(44, 90, 160, 0.1) 0%, transparent 50%),
+              radial-gradient(ellipse at bottom right, rgba(0, 212, 170, 0.1) 0%, transparent 50%);
+  pointer-events: none;
 }
 
-/* Tema oscuro */
-[data-bs-theme="dark"] .hero-section {
-  --hero-bg-start: var(--bs-dark);      /* #0b213e */
-  --hero-bg-end: var(--bs-secondary);   /* #0d2240 */
+/* Elementos flotantes decorativos */
+.floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
 }
 
-.loading svg #front {
-  stroke-dasharray: 300;
-  stroke-dashoffset: 300;
-  animation: dash 2s ease-in-out infinite;
+.floating-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(45deg, rgba(44, 90, 160, 0.1), rgba(0, 212, 170, 0.1));
+  animation: float 6s ease-in-out infinite;
 }
 
-@keyframes dash {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-/* Contenedor central */
-.loading {
-  display: block;
-  justify-content: center;
-  margin-left: 4rem;
-  align-items: center;
+.circle-1 {
+  width: 120px;
   height: 120px;
+  top: 10%;
+  right: 10%;
+  animation-delay: 0s;
+}
+
+.circle-2 {
+  width: 80px;
+  height: 80px;
+  top: 60%;
+  left: 5%;
+  animation-delay: 2s;
+}
+
+.circle-3 {
+  width: 60px;
+  height: 60px;
+  bottom: 20%;
+  right: 20%;
+  animation-delay: 4s;
+}
+
+.medical-cross {
+  position: absolute;
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgba(44, 90, 160, 0.2);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.cross-1 {
+  top: 20%;
+  left: 15%;
+  animation-delay: 1s;
+}
+
+.cross-2 {
+  bottom: 30%;
+  right: 15%;
+  animation-delay: 3s;
+}
+
+/* Contenido del hero */
+.hero-content {
+  z-index: 2;
+}
+
+.stethoscope-container {
+  animation: slideInLeft 1s ease-out;
+}
+
+.hero-title {
+  color: var(--text-dark);
+  line-height: 1.2;
+  animation: slideInUp 1s ease-out 0.2s both;
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.text-accent {
+  color: var(--accent-color) !important;
+}
+
+.hero-subtitle {
+  color: var(--text-muted);
+  font-size: 1.25rem;
+  line-height: 1.6;
+  animation: slideInUp 1s ease-out 0.4s both;
+}
+
+/* Indicadores de confianza */
+.trust-indicators {
+  animation: slideInUp 1s ease-out 0.6s both;
+}
+
+.trust-item {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.trust-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+.trust-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.875rem;
+}
+
+/* Botones de acción */
+.hero-actions {
+  animation: slideInUp 1s ease-out 0.8s both;
+}
+
+.btn-whatsapp {
+  background: linear-gradient(45deg, #25d366, #128c7e);
+  border: none;
+  color: white;
+  font-weight: 600;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.btn-whatsapp::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
 
 }
 
-
-.loading svg polyline {
-  fill: none;
-  stroke-width: 3;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.btn-whatsapp:hover::before {
+  left: 100%;
 }
 
-/* Línea de fondo (gris suave o transparente) */
-.loading svg polyline#back {
-  stroke: rgba(0, 0, 0, 0.1);
+.btn-whatsapp:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
+  color: white;
+
 }
 
-/* Línea animada */
-.loading svg polyline#front {
-  stroke: #FF0000;
-  stroke-dasharray: 48, 144;
-  stroke-dashoffset: 192;
-  animation: dash_682 1.7s linear infinite;
-  filter: drop-shadow(2px 4px 6px rgba(210, 208, 208, 0.801)) opacity(0.8);
+.btn-services {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid var(--primary-color);
+  color: #1e3d72;
+  font-weight: 600;
+  border-radius: var(--border-radius);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  border-radius: 20px;
 }
 
-@keyframes dash_682 {
-  72.5% {
-    opacity: 0;
+.btn-services:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+
+}
+
+/* Contenedor de imagen */
+.hero-image-container {
+  animation: slideInRight 1s ease-out 0.5s both;
+}
+
+.image-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-image {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 180px;
+  object-fit: cover;
+}
+
+.hero-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(20, 141, 184, 0.5);
+  position: relative;
+  z-index: 10;
+}
+
+/* Opcional: para que las imágenes del carousel tengan altura fija */
+#mobileCarousel .carousel-item img {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+/* Tarjeta flotante */
+.floating-card {
+  top: 20%;
+  left: -10%;
+  z-index: 2;
+  animation: floatCard 3s ease-in-out infinite;
+}
+
+.floating-card .card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: var(--border-radius);
+  min-width: 200px;
+}
+
+.status-indicator {
+  width: 12px;
+  height: 12px;
+  background: var(--success-color);
+  border-radius: 50%;
+  position: relative;
+}
+
+.status-indicator::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: var(--success-color);
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: pulse 2s infinite;
+}
+
+/* Animaciones */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.1); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+  .hero-title {
+    font-size: 2.5rem;
   }
-  to {
-    stroke-dashoffset: 0;
+
+  .floating-card {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin-bottom: 2rem;
+  }
+
+  .floating-circle {
+    display: none;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .btn-whatsapp,
+  .btn-services {
+    width: 100%;
   }
 }
 
-@media screen and (max-width: 768px) {
-  .loading svg {
-    width: 180px;
-    height: 180px;
-    margin-left: 0.2rem;
+@media (max-width: 575.98px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .trust-indicators {
+    justify-content: center;
+  }
+
+  .trust-item {
+    flex: 1;
+    min-width: 120px;
   }
 }
 
-.lottie-container {
+/* Fondo verde degradado */
+.hero-section {
+  background: linear-gradient(135deg, #0d2240 0%, #148db8 100%);
+  min-height: 100vh;
+  position: relative;
+  color: white;
+}
+
+/* Ajustar gradiente decorativo para que combine */
+.hero-gradient {
+  background: radial-gradient(ellipse at top left, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+              radial-gradient(ellipse at bottom right, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+}
+
+/* Centrar estetoscopio */
+.stethoscope-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 2rem;
+  animation: slideInDown 1s ease-out;
+}
+
+/* Título y texto con mejor contraste en fondo verde */
+.hero-title {
+  color: white;
+}
+
+.hero-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Animación de entrada desde arriba para estetoscopio */
+@keyframes slideInDown {
+  from { opacity: 0; transform: translateY(-50px); }
+  to { opacity: 1; transform: translateY(0); }
 }

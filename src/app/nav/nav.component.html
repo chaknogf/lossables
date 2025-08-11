@@ -1,18 +1,27 @@
-<header class="navbar navbar-expand-lg navbar-light bg-light flex-column fixed-top shadow-sm">
+<header
+  class="navbar navbar-expand-lg navbar-light bg-light flex-column fixed-top shadow-sm"
+>
   <!-- Contacto y logo -->
   <div class="container d-flex justify-content-between align-items-center py-2">
-    <a class="nav-link d-none d-md-block" href="tel:+50212345678">📞 +502 7840 3734</a>
+    <a class="nav-link d-none d-md-block" href="tel:+50212345678"
+      >📞 +502 7840 3734</a
+    >
 
     <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-      <span [innerHTML]="logoicon" class="d-inline-block" style="width: 40px;"></span>
+      <span
+        [innerHTML]="logoicon"
+        class="d-inline-block"
+        style="width: 40px"
+      ></span>
       <div class="d-inline-block align-middle text-center lh-1">
         <span class="montserrat d-block m-0 p-0">CENTRO MÉDICO</span>
         <span class="robotos d-block m-0 p-0">LOS SABLES</span>
       </div>
-
     </a>
 
-    <a class="nav-link d-none d-md-block" [href]="'mailto:' + link">✉️ {{ link }}</a>
+    <a class="nav-link d-none d-md-block" [href]="'mailto:' + link"
+      >✉️ {{ link }}</a
+    >
 
     <!-- Botón hamburguesa -->
     <button
@@ -25,49 +34,66 @@
     </button>
   </div>
 
-
   <!-- Menú horizontal o móvil -->
   <nav class="w-100 bg-primary">
     <div class="container">
-      <div class="collapse navbar-collapse d-none d-lg-flex justify-content-center py-2" id="navbarMenu">
+      <div
+        class="collapse navbar-collapse d-none d-lg-flex justify-content-center py-2"
+        id="navbarMenu"
+      >
         <ul class="navbar-nav flex-row gap-3">
-          <li class="nav-item"><a class="nav-link text-white" href="#inicio">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#servicios">Servicios</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#nosotros">Nosotros</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#laboratorio">Laboratorio</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#doctores">Doctores</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#contacto">Contacto</a></li>
-         <li class="nav-item">
-  <button
-    class="btn btn-light btn-sm rounded-pill ms-2"
-    (click)="abrirModal()"
-  >
-    Agendar Cita
-  </button>
-</li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#inicio">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#servicios">Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#nosotros">Nosotros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#laboratorio">Laboratorio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#doctores">Doctores</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#contacto">Contacto</a>
+          </li>
+          <li class="nav-item">
+            <button
+              class="btn btn-light btn-sm rounded-pill ms-2"
+              (click)="abrirModal()"
+            >
+              Agendar Cita
+            </button>
+          </li>
         </ul>
       </div>
 
       <!-- Menú móvil -->
-      <div *ngIf="isMenuOpen" class="d-lg-none bg-white shadow-sm rounded-bottom p-3">
+      <div
+        *ngIf="isMenuOpen"
+        class="d-lg-none bg-white shadow-sm rounded-bottom p-3"
+      >
         <a class="d-block py-2 text-dark" href="#inicio">Inicio</a>
         <a class="d-block py-2 text-dark" href="#servicios">Servicios</a>
         <a class="d-block py-2 text-dark" href="#nosotros">Nosotros</a>
+        <a class="d-block py-2 text-dark" href="#laboratorio">Laboratorio</a>
         <a class="d-block py-2 text-dark" href="#doctores">Doctores</a>
         <a class="d-block py-2 text-dark" href="#contacto">Contacto</a>
-        <a class="btn btn-primary w-100 mt-2" href="https://wa.me/50234826151?text=Hola,%20quiero%20agendar%20una%20cita."
-              target="_blank"
-              rel="noopener noreferrer">
-              Agendar Cita
-            </a>
+        <a
+          class="btn btn-primary w-100 mt-2"
+          href="https://wa.me/50234826151?text=Hola,%20quiero%20agendar%20una%20cita."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Agendar Cita
+        </a>
       </div>
     </div>
   </nav>
 </header>
-
-
-
-
 
 <!-- Modal Bootstrap -->
 <div
@@ -86,7 +112,11 @@
     >
       <div class="modal-header">
         <h5 class="modal-title" id="modalCitaLabel">Agendar Cita</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+        ></button>
       </div>
 
       <div class="modal-body">
@@ -102,7 +132,10 @@
             [(ngModel)]="form.nombre"
             #nombre="ngModel"
           />
-          <div class="invalid-feedback d-block" *ngIf="nombre.invalid && nombre.touched">
+          <div
+            class="invalid-feedback d-block"
+            *ngIf="nombre.invalid && nombre.touched"
+          >
             Por favor, ingresa tu nombre.
           </div>
         </div>
@@ -121,7 +154,10 @@
             [(ngModel)]="form.telefono"
             #telefono="ngModel"
           />
-          <div class="invalid-feedback d-block" *ngIf="telefono.invalid && telefono.touched">
+          <div
+            class="invalid-feedback d-block"
+            *ngIf="telefono.invalid && telefono.touched"
+          >
             El teléfono debe tener entre 8 y 10 dígitos, solo números.
           </div>
         </div>
@@ -143,7 +179,10 @@
             <option value="Ginecología">Ginecología</option>
             <option value="Odontología">Odontología</option>
           </select>
-          <div class="invalid-feedback d-block" *ngIf="especialidad.invalid && especialidad.touched">
+          <div
+            class="invalid-feedback d-block"
+            *ngIf="especialidad.invalid && especialidad.touched"
+          >
             Por favor, selecciona una especialidad.
           </div>
         </div>

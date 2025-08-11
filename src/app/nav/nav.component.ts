@@ -1,5 +1,7 @@
-import { Component, OnInit, NgZone, AfterViewInit } from '@angular/core';
+import { Component, OnInit, NgZone, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DOCUMENT } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import { logoSVG } from '../shared/logo';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -17,20 +19,26 @@ export class NavComponent implements OnInit, AfterViewInit {
   logoicon: SafeHtml = logoSVG;
   link = 'centromedicolossables@gmail.com';
   isMenuOpen = false;
-
   form = { nombre: '', telefono: '', especialidad: '' };
   private modalInstance: any;
 
-  constructor(private sanitizer: DomSanitizer, private ngZone: NgZone) {
+  constructor(
+    private sanitizer: DomSanitizer,
+    private ngZone: NgZone,
+    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(DOCUMENT) private document: Document
+  ) {
     this.logoicon = this.sanitizer.bypassSecurityTrustHtml(logoSVG);
   }
 
   ngOnInit(): void { }
 
   ngAfterViewInit(): void {
-    const modalEl = document.getElementById('modalCita');
-    if (modalEl) {
-      this.modalInstance = new bootstrap.Modal(modalEl);
+    if (isPlatformBrowser(this.platformId)) {
+      const modalEl = this.document.getElementById('modalCita');
+      if (modalEl) {
+        this.modalInstance = new bootstrap.Modal(modalEl);
+      }
     }
   }
 
@@ -39,7 +47,9 @@ export class NavComponent implements OnInit, AfterViewInit {
   }
 
   abrirModal(): void {
-    this.modalInstance.show();
+    if (this.modalInstance) {
+      this.modalInstance.show();
+    }
   }
 
   enviarWhatsapp(): void {
@@ -49,10 +59,14 @@ export class NavComponent implements OnInit, AfterViewInit {
     const urlWhatsapp = `https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(mensaje)}`;
 
     this.ngZone.runOutsideAngular(() => {
-      window.open(urlWhatsapp, '_blank');
+      if (isPlatformBrowser(this.platformId)) {
+        window.open(urlWhatsapp, '_blank');
+      }
     });
 
-    this.modalInstance.hide();
+    if (this.modalInstance) {
+      this.modalInstance.hide();
+    }
     this.form = { nombre: '', telefono: '', especialidad: '' };
   }
 }
