@@ -1,21 +1,16 @@
-<section class="stats-section py-5 bg-light">
+<section class="stats-section py-5">
   <div class="container">
-    <div class="row text-center gy-4">
-      <div class="col-6 col-md-3">
-        <div class="stat-number text-primary">10+</div>
-        <p class="stat-label">Años de Experiencia</p>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="stat-number text-primary">1K+</div>
-        <p class="stat-label">Pacientes Atendidos</p>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="stat-number text-primary">12+</div>
-        <p class="stat-label">Especialistas</p>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="stat-number text-primary">98%</div>
-        <p class="stat-label">Satisfacción</p>
+    <div #statsGrid class="row text-center gy-4 justify-content-center">
+      <div class="col-6 col-md-3" *ngFor="let stat of stats">
+        <div class="stat-card">
+          <i class="bi {{ stat.icono }}" aria-hidden="true"></i>
+          <div
+            class="stat-counter"
+            [attr.data-target]="stat.valor"
+            [attr.data-suffix]="stat.sufijo"
+          >{{ stat.valor }}{{ stat.sufijo }}</div>
+          <p class="stat-label">{{ stat.etiqueta }}</p>
+        </div>
       </div>
     </div>
   </div>

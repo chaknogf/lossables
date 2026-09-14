@@ -1,89 +1,76 @@
-<section id="contacto" class="py-5 bg-light">
+<section id="contacto" class="section-padding bg-app-alt">
   <div class="container">
     <div class="text-center mb-5">
-      <h2 class="h1 fw-bold text-dark mb-3">Contáctanos</h2>
-      <p class="fs-5 text-secondary mx-auto" style="max-width: 720px">
-        Estamos aquí para atenderte. Agenda tu cita o contáctanos para más
-        información.
+      <span class="section-eyebrow">Ubicación y Contacto</span>
+      <h2 class="section-title">Visítanos o contáctanos</h2>
+      <p class="section-subtitle">
+        Estamos ubicados en Tecpán Guatemala. Agenda tu cita, llámanos o
+        escríbenos por WhatsApp.
       </p>
     </div>
 
     <div class="row g-4">
       <!-- Mapa -->
-
       <div class="col-lg-8">
-        <div class="bg-gradient-federal rounded-4 shadow p-1 p-md-2">
-          <h3 class="h4 fw-bold text-white mb-1 rounded-b-full">
-            <i class="bi bi-geo-alt-fill me-2"></i>¿Dónde estamos ubicados?
+        <div class="contact-map-card h-100">
+          <h3 class="contact-map-header">
+            <span class="contact-map-dot" aria-hidden="true"></span>
+            ¿Dónde estamos ubicados?
           </h3>
-          <app-mapa></app-mapa>
+          <div class="contact-map-body">
+            <app-mapa></app-mapa>
+          </div>
         </div>
       </div>
 
       <!-- Info -->
       <div class="col-lg-4">
         <div class="d-flex flex-column gap-3">
-          <div class="bg-white rounded-4 shadow p-3 d-flex align-items-start">
-            <div class="bg-primary text-white rounded-circle p-2 me-3">
-              <i class="bi bi-telephone-fill fs-5"></i>
-            </div>
-            <div>
-              <h5 class="fw-semibold text-dark mb-1">Teléfono</h5>
-              <a
-                href="tel:+50278403734"
-                class="text-primary text-decoration-none"
-                >+502 7840 3734</a
-              >
-              <br />
-              <a
-                href="https://wa.me/50234826151"
-                target="_blank"
-                class="text-success text-decoration-none"
-              >
-                <i class="bi bi-whatsapp me-1"></i>+502 3482 6151
-              </a>
-            </div>
-          </div>
+          <a href="tel:+50278403734" class="contact-card text-decoration-none">
+            <span class="contact-card-icon bg-tint-teal">
+              <i class="bi bi-telephone-fill"></i>
+            </span>
+            <span>
+              <h4 class="h6 fw-bold mb-1">Teléfono</h4>
+              <small>+502 7840 3734<br />+502 3482 6151 (WhatsApp)</small>
+            </span>
+          </a>
 
-          <div class="bg-white rounded-4 shadow p-3 d-flex align-items-start">
-            <div class="bg-success text-white rounded-circle p-2 me-3">
-              <i class="bi bi-envelope-fill fs-5"></i>
-            </div>
-            <div>
-              <h5 class="fw-semibold text-dark mb-1">Email</h5>
-              <a
-                href="mailto:info&#64;clinicalossabes.com"
-                class="text-success"
-                >{{ mail }}</a
-              >
-            </div>
-          </div>
+          <a href="mailto:centromedicolossables@gmail.com" class="contact-card text-decoration-none">
+            <span class="contact-card-icon bg-tint-green">
+              <i class="bi bi-envelope-fill"></i>
+            </span>
+            <span>
+              <h4 class="h6 fw-bold mb-1">Email</h4>
+              <small>{{ mail }}</small>
+            </span>
+          </a>
 
-          <div class="bg-white rounded-4 shadow p-3 d-flex align-items-start">
-            <div class="bg-info text-white rounded-circle p-2 me-3">
-              <i class="bi bi-geo-alt-fill fs-5"></i>
-            </div>
-            <div>
-              <h5 class="fw-semibold text-dark mb-1">Dirección</h5>
-              <p class="text-secondary mb-0">
+          <div class="contact-card">
+            <span class="contact-card-icon bg-tint-cyan">
+              <i class="bi bi-geo-alt-fill"></i>
+            </span>
+            <span>
+              <h4 class="h6 fw-bold mb-1">Dirección</h4>
+              <small>
                 1ra calle 6-51 zona 4<br />
                 Tecpán Guatemala, Chimaltenango
-              </p>
-            </div>
+              </small>
+            </span>
           </div>
 
-          <div class="bg-white rounded-4 shadow p-3 d-flex align-items-start">
-            <div class="bg-warning text-white rounded-circle p-2 me-3">
-              <i class="bi bi-clock-fill fs-5"></i>
-            </div>
-            <div>
-              <h5 class="fw-semibold text-dark mb-1">Horarios</h5>
-              <p class="text-secondary mb-0">
+          <div class="contact-card">
+            <span class="contact-card-icon bg-tint-amber">
+              <i class="bi bi-clock-fill"></i>
+            </span>
+            <span>
+              <h4 class="h6 fw-bold mb-1">Horarios</h4>
+              <small>
                 Lun - Vie: 8:30 - 18:00<br />
                 Sáb: 8:30 - 12:00<br />
                 Dom: Emergencias 24/7
-              </p>
-            </div>
+              </small>
+            </span>
           </div>
         </div>
       </div>

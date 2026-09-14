@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import '@iconify/iconify';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { anestesiaIcon, brainIcon, brillosIcon, cirujanoIcon, curitasIcon, dermaIcon, diabetesIcon, dienteicon, labIcon, medicalIcon, ositoTeddyIcon, psicoIcon, pulmonIcon, reumaIcon, vaginaIcon, maxiloicon } from '../shared/icon';
+import { RevealDirective } from '../shared/reveal.directive';
 
 interface Servicio {
   icon: SafeHtml;
@@ -15,7 +16,7 @@ interface Servicio {
 @Component({
   selector: 'app-servicios-section',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RevealDirective],
   templateUrl: './servicios-section.component.html',
   styleUrls: ['./servicios-section.component.css'],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

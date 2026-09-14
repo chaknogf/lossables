@@ -1,5 +1,52 @@
-/* En styles.css si Tailwind no lo cubre completamente */
+/* =========================================================
+   APP GLOBAL
+   ========================================================= */
+
 .bg-glass-white {
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(12px);
+}
+
+/* Toggle de tema flotante */
+.floating-toggle {
+  position: fixed;
+  bottom: 1.4rem;
+  right: 1.4rem;
+  z-index: 1040;
+}
+
+.floating-toggle .theme-toggle-btn {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--bs-body-bg);
+  border: 1.5px solid var(--bs-border-color);
+  box-shadow: var(--app-shadow-md);
+  backdrop-filter: blur(16px);
+  padding: 0;
+  color: var(--bs-heading-color);
+  transition: var(--app-transition);
+}
+
+.floating-toggle .theme-toggle-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  border-color: var(--bs-primary);
+  box-shadow: var(--app-shadow-lg);
+}
+
+.floating-toggle .icon {
+  font-size: 1.4rem;
+}
+
+@media (max-width: 575.98px) {
+  .floating-toggle {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  .floating-toggle .theme-toggle-btn {
+    width: 46px;
+    height: 46px;
+  }
 }

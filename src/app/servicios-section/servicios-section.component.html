@@ -1,25 +1,30 @@
-<section id="servicios" class="py-5 bg-white">
+<section id="servicios" class="section-padding bg-white">
   <div class="container">
-   <header class="text-center mb-3">
-  <h2 class="display-6 fw-bold text-dark mb-3">Nuestros Servicios</h2>
-  <p class="lead text-secondary mx-auto" style="max-width: 720px;">
-    Ofrecemos una amplia gama de servicios médicos especializados para cuidar tu salud integral.
-  </p>
-</header>
+    <header class="text-center mb-5">
+      <span class="section-eyebrow">Nuestras Especialidades</span>
+      <h2 class="section-title text-balance">Cuidamos tu salud de forma integral</h2>
+      <p class="section-subtitle">
+        Ofrecemos una amplia gama de servicios médicos especializados con
+        tecnología de vanguardia y atención personalizada.
+      </p>
+    </header>
 
-    <div class="row g-3 justify-content-center">
+    <div class="row g-4 justify-content-center">
       <div
         class="col-12 col-sm-6 col-md-4 col-lg-3"
-        *ngFor="let servicio of servicios"
+        *ngFor="let servicio of servicios; index as i"
       >
-            <div
-        class="card card-hover h-100 border-0 shadow-sm text-center px-1 pt-4 pb-2"
-        [ngClass]="[servicio.bg]"
-      >
-        <div class="mb-2 h-100" [innerHTML]="servicio.icon"></div>
-        <h6 class="fw-semibold mb-2">{{ servicio.titulo }}</h6>
-        <p class="mb-0 small lh-sm">{{ servicio.descripcion }}</p>
-      </div>
+        <div
+          appReveal
+          [delay]="(i % 4) * 80"
+          class="card card-hover h-100 border-0 text-center"
+        >
+          <div class="service-icon" [ngClass]="servicio.bg">
+            <span [innerHTML]="servicio.icon" aria-hidden="true"></span>
+          </div>
+          <h3 class="h6 fw-semibold mb-2">{{ servicio.titulo }}</h3>
+          <p class="mb-0 small lh-sm text-secondary">{{ servicio.descripcion }}</p>
+        </div>
       </div>
     </div>
   </div>

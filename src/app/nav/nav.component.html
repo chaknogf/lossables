@@ -1,93 +1,118 @@
-<header
-  class="navbar navbar-expand-lg navbar-light bg-light flex-column fixed-top shadow-sm"
->
-  <!-- Contacto y logo -->
-  <div class="container d-flex justify-content-between align-items-center py-2">
-    <a class="nav-link d-none d-md-block" href="tel:+50212345678"
-      >📞 +502 7840 3734</a
-    >
-
-    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-      <span
-        [innerHTML]="logoicon"
-        class="d-inline-block"
-        style="width: 40px"
-      ></span>
-      <div class="d-inline-block align-middle text-center lh-1">
-        <span class="montserrat d-block m-0 p-0">CENTRO MÉDICO</span>
-        <span class="robotos d-block m-0 p-0">LOS SABLES</span>
+<header class="app-navbar fixed-top">
+  <!-- Barra superior de contacto -->
+  <div class="app-topbar d-none d-md-block">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center gap-4">
+        <a
+          class="app-topbar-link d-flex align-items-center gap-2"
+          href="tel:+50278403734"
+        >
+          <i class="bi bi-telephone-fill"></i>
+          <span>+502 7840 3734</span>
+        </a>
+        <a
+          class="app-topbar-link d-flex align-items-center gap-2"
+          href="mailto:centromedicolossables@gmail.com"
+        >
+          <i class="bi bi-envelope-fill"></i>
+          <span>centromedicolossables&#64;gmail.com</span>
+        </a>
       </div>
-    </a>
-
-    <a class="nav-link d-none d-md-block" [href]="'mailto:' + link"
-      >✉️ {{ link }}</a
-    >
-
-    <!-- Botón hamburguesa -->
-    <button
-      class="navbar-toggler d-md-none"
-      type="button"
-      (click)="toggleMenu()"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <div class="d-flex align-items-center gap-3">
+        <span class="app-emergency d-none d-lg-inline-flex align-items-center gap-2">
+          <i class="bi bi-shield-plus"></i>
+          Emergencias 24/7
+        </span>
+        <a
+          class="app-topbar-link"
+          href="https://www.facebook.com/profile.php?id=61578933820425"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook de Centro Médico Los Sables"
+        >
+          <i class="bi bi-facebook"></i>
+        </a>
+        <a
+          class="app-topbar-link"
+          href="https://www.instagram.com/centromedicolossables"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram de Centro Médico Los Sables"
+        >
+          <i class="bi bi-instagram"></i>
+        </a>
+      </div>
+    </div>
   </div>
 
-  <!-- Menú horizontal o móvil -->
-  <nav class="w-100 bg-primary">
-    <div class="container">
-      <div
-        class="collapse navbar-collapse d-none d-lg-flex justify-content-center py-2"
-        id="navbarMenu"
-      >
-        <ul class="navbar-nav flex-row gap-3">
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#inicio">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#servicios">Servicios</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#nosotros">Nosotros</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#laboratorio">Laboratorio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#doctores">Doctores</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#contacto">Contacto</a>
-          </li>
-          <li class="nav-item">
-            <button
-              class="btn btn-light btn-sm rounded-pill ms-2"
-              (click)="abrirModal()"
-            >
-              Agendar Cita
-            </button>
-          </li>
-        </ul>
-      </div>
+  <!-- Navegación principal -->
+  <nav class="app-navbar-main" [class.scrolled]="scrolled" aria-label="Navegación principal">
+    <div class="container d-flex align-items-center justify-content-between">
+      <!-- Marca -->
+      <a class="app-brand d-flex align-items-center gap-3" href="#inicio" aria-label="Centro Médico Los Sables - Inicio">
+        <span
+          [innerHTML]="logoicon"
+          class="d-inline-block app-brand-logo"
+          aria-hidden="true"
+        ></span>
+        <span class="app-brand-text d-sm-block">
+          <span class="montserrat d-block">CENTRO MÉDICO</span>
+          <span class="robotos d-block">LOS SABLES</span>
+        </span>
+      </a>
 
-      <!-- Menú móvil -->
-      <div
-        *ngIf="isMenuOpen"
-        class="d-lg-none bg-white shadow-sm rounded-bottom p-3"
-      >
-        <a class="d-block py-2 text-dark" href="#inicio">Inicio</a>
-        <a class="d-block py-2 text-dark" href="#servicios">Servicios</a>
-        <a class="d-block py-2 text-dark" href="#nosotros">Nosotros</a>
-        <a class="d-block py-2 text-dark" href="#laboratorio">Laboratorio</a>
-        <a class="d-block py-2 text-dark" href="#doctores">Doctores</a>
-        <a class="d-block py-2 text-dark" href="#contacto">Contacto</a>
+      <!-- Menú escritorio -->
+      <ul class="app-menu d-none d-lg-flex align-items-center gap-1 mb-0">
+        <li><a class="app-menu-link" href="#inicio">Inicio</a></li>
+        <li><a class="app-menu-link" href="#servicios">Servicios</a></li>
+        <li><a class="app-menu-link" href="#nosotros">Nosotros</a></li>
+        <li><a class="app-menu-link" href="#laboratorio">Laboratorio</a></li>
+        <li><a class="app-menu-link" href="#doctores">Doctores</a></li>
+        <li><a class="app-menu-link" href="#novedades">Novedades</a></li>
+        <li><a class="app-menu-link" href="#contacto">Contacto</a></li>
+      </ul>
+
+      <div class="d-flex align-items-center gap-2">
+        <button
+          class="btn btn-primary app-cta d-none d-md-inline-flex align-items-center gap-2"
+          (click)="abrirModal()"
+        >
+          <i class="bi bi-calendar2-heart-fill"></i>
+          Agendar Cita
+        </button>
+
+        <!-- Botón hamburguesa -->
+        <button
+          class="app-hamburger d-lg-none"
+          type="button"
+          (click)="toggleMenu()"
+          [attr.aria-expanded]="isMenuOpen"
+          aria-label="Abrir o cerrar menú de navegación"
+        >
+          <span class="app-hamburger-bar" [class.open]="isMenuOpen"></span>
+          <span class="app-hamburger-bar" [class.open]="isMenuOpen"></span>
+          <span class="app-hamburger-bar" [class.open]="isMenuOpen"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú móvil -->
+    <div class="app-mobile-menu" [class.open]="isMenuOpen">
+      <div class="container py-3">
+        <a class="app-mobile-link" href="#inicio" (click)="toggleMenu()">Inicio</a>
+        <a class="app-mobile-link" href="#servicios" (click)="toggleMenu()">Servicios</a>
+        <a class="app-mobile-link" href="#nosotros" (click)="toggleMenu()">Nosotros</a>
+        <a class="app-mobile-link" href="#laboratorio" (click)="toggleMenu()">Laboratorio</a>
+        <a class="app-mobile-link" href="#doctores" (click)="toggleMenu()">Doctores</a>
+        <a class="app-mobile-link" href="#novedades" (click)="toggleMenu()">Novedades</a>
+        <a class="app-mobile-link" href="#contacto" (click)="toggleMenu()">Contacto</a>
         <a
-          class="btn btn-primary w-100 mt-2"
+          class="btn btn-primary w-100 mt-3 d-inline-flex align-items-center justify-content-center gap-2"
           href="https://wa.me/50234826151?text=Hola,%20quiero%20agendar%20una%20cita."
           target="_blank"
           rel="noopener noreferrer"
         >
+          <i class="bi bi-whatsapp"></i>
           Agendar Cita
         </a>
       </div>
@@ -95,32 +120,30 @@
   </nav>
 </header>
 
-<!-- Modal Bootstrap -->
+<!-- Modal Agendar Cita -->
 <div
-  class="modal fade"
+  class="modal modal-blur fade"
   id="modalCita"
   tabindex="-1"
   aria-labelledby="modalCitaLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <form
       (ngSubmit)="enviarWhatsapp()"
       #formCita="ngForm"
       class="modal-content needs-validation"
       novalidate
     >
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalCitaLabel">Agendar Cita</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-        ></button>
+      <div class="modal-header border-0 pb-0">
+        <div>
+          <h5 class="modal-title" id="modalCitaLabel">Agendar Cita</h5>
+          <p class="text-muted small mb-0">Te confirmamos por WhatsApp</p>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
       </div>
 
       <div class="modal-body">
-        <!-- Nombre -->
         <div class="mb-3">
           <label for="nombre" class="form-label">Nombre completo</label>
           <input
@@ -128,41 +151,34 @@
             id="nombre"
             name="nombre"
             class="form-control"
+            placeholder="Ej. María López"
             required
             [(ngModel)]="form.nombre"
             #nombre="ngModel"
           />
-          <div
-            class="invalid-feedback d-block"
-            *ngIf="nombre.invalid && nombre.touched"
-          >
+          <div class="invalid-feedback d-block" *ngIf="nombre.invalid && nombre.touched">
             Por favor, ingresa tu nombre.
           </div>
         </div>
 
-        <!-- Teléfono -->
         <div class="mb-3">
           <label for="telefono" class="form-label">Teléfono</label>
           <input
             type="tel"
             id="telefono"
             name="telefono"
-            placeholder="Ejemplo: 50234826151"
+            placeholder="Ej. 50234826151"
             class="form-control"
             required
             pattern="^[0-9]{8,10}$"
             [(ngModel)]="form.telefono"
             #telefono="ngModel"
           />
-          <div
-            class="invalid-feedback d-block"
-            *ngIf="telefono.invalid && telefono.touched"
-          >
+          <div class="invalid-feedback d-block" *ngIf="telefono.invalid && telefono.touched">
             El teléfono debe tener entre 8 y 10 dígitos, solo números.
           </div>
         </div>
 
-        <!-- Especialidad -->
         <div class="mb-3">
           <label for="especialidad" class="form-label">Especialidad</label>
           <select
@@ -178,23 +194,18 @@
             <option value="Pediatría">Pediatría</option>
             <option value="Ginecología">Ginecología</option>
             <option value="Odontología">Odontología</option>
+            <option value="Cirugía">Cirugía</option>
           </select>
-          <div
-            class="invalid-feedback d-block"
-            *ngIf="especialidad.invalid && especialidad.touched"
-          >
+          <div class="invalid-feedback d-block" *ngIf="especialidad.invalid && especialidad.touched">
             Por favor, selecciona una especialidad.
           </div>
         </div>
       </div>
 
-      <div class="modal-footer">
-        <button
-          type="submit"
-          class="btn btn-primary"
-          [disabled]="formCita.invalid"
-        >
-          Enviar Cita
+      <div class="modal-footer border-0 pt-0">
+        <button type="submit" class="btn btn-primary w-100" [disabled]="formCita.invalid">
+          <i class="bi bi-whatsapp me-1"></i>
+          Enviar Cita por WhatsApp
         </button>
       </div>
     </form>

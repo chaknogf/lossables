@@ -1,15 +1,230 @@
-@media (max-width: 600px) {
-  .ocultar-en-movil {
-    display: none !important;
+/* =========================================================
+   NAVBAR - Estilo Apple glassmorphism
+   ========================================================= */
+
+.app-navbar {
+  font-family: var(--app-font-body);
+}
+
+/* --- Barra superior de contacto --- */
+.app-topbar {
+  background: var(--bs-secondary);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.82rem;
+  padding: 0.45rem 0;
+  letter-spacing: 0.01em;
+}
+
+.app-topbar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.app-topbar-link:hover {
+  color: #ffffff;
+}
+
+.app-emergency {
+  color: var(--light-cyan);
+  font-weight: 600;
+  font-size: 0.82rem;
+}
+.app-emergency i {
+  color: #5eead4;
+}
+
+/* --- Barra principal --- */
+.app-navbar-main {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(22px) saturate(180%);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+  transition: box-shadow 0.35s ease, background-color 0.35s ease;
+}
+.app-navbar-main.scrolled {
+  box-shadow: var(--app-shadow-sm);
+  background: rgba(255, 255, 255, 0.86);
+}
+
+[data-bs-theme="dark"] .app-navbar-main {
+  background: rgba(13, 27, 48, 0.78);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+[data-bs-theme="dark"] .app-navbar-main.scrolled {
+  background: rgba(13, 27, 48, 0.92);
+}
+
+.app-navbar-main .container {
+  min-height: 72px;
+}
+
+/* --- Marca --- */
+.app-brand {
+  text-decoration: none;
+  color: var(--bs-heading-color);
+}
+.app-brand-logo {
+  width: 42px;
+  flex-shrink: 0;
+}
+.app-brand-text span:last-child {
+  color: var(--bs-primary);
+}
+
+/* --- Menú escritorio --- */
+.app-menu {
+  list-style: none;
+  padding-left: 0;
+}
+
+.app-menu-link {
+  display: inline-block;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--app-radius-sm);
+  color: var(--bs-heading-color);
+  font-weight: 500;
+  font-size: 0.94rem;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+.app-menu-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 2px;
+  width: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--bs-primary);
+  transform: translateX(-50%);
+  transition: width 0.25s ease;
+}
+.app-menu-link:hover {
+  color: var(--bs-primary);
+}
+.app-menu-link:hover::after {
+  width: 60%;
+}
+
+/* --- CTA --- */
+.app-cta {
+  font-size: 0.9rem;
+  padding: 0.55rem 1.1rem;
+  white-space: nowrap;
+}
+
+/* --- Hamburguesa animada --- */
+.app-hamburger {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 46px;
+  height: 46px;
+  padding: 10px;
+  background: transparent;
+  border: 1.5px solid var(--bs-border-color);
+  border-radius: var(--app-radius-sm);
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+.app-hamburger:hover {
+  border-color: var(--bs-primary);
+}
+
+.app-hamburger-bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--bs-heading-color);
+  transition: transform 0.3s ease, opacity 0.2s ease;
+}
+.app-hamburger-bar.open:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.app-hamburger-bar.open:nth-child(2) {
+  opacity: 0;
+}
+.app-hamburger-bar.open:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* --- Menú móvil --- */
+.app-mobile-menu {
+  display: grid;
+  grid-template-rows: 0fr;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  overflow: hidden;
+  transition: grid-template-rows 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease;
+}
+.app-mobile-menu > .container {
+  min-height: 0;
+  overflow: hidden;
+}
+.app-mobile-menu.open {
+  grid-template-rows: 1fr;
+  box-shadow: 0 20px 40px rgba(11, 33, 62, 0.1);
+}
+
+[data-bs-theme="dark"] .app-mobile-menu {
+  background: rgba(21, 39, 63, 0.97);
+}
+
+.app-mobile-link {
+  display: block;
+  padding: 0.85rem 0.25rem;
+  color: var(--bs-heading-color);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid var(--bs-border-color-translucent);
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+.app-mobile-link:hover {
+  color: var(--bs-primary);
+  padding-left: 0.6rem;
+}
+
+/* --- Modal --- */
+.modal-blur .modal-content {
+  border: none;
+  border-radius: var(--app-radius-lg);
+  box-shadow: var(--app-shadow-lg);
+  background: var(--bs-body-bg);
+}
+
+.modal-title {
+  font-family: var(--app-font-heading);
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 575.98px) {
+  .app-navbar-main .container {
+    min-height: 60px;
+  }
+  .app-brand-logo {
+    width: 36px;
+  }
+  .robotos {
+    font-size: 1.05rem;
+    letter-spacing: 0.18em;
+  }
+  .montserrat {
+    font-size: 0.72rem;
   }
 }
 
-.bg-hover:hover {
-  background-color: #20c996cc;
-  transition: background-color 0.5s ease;
-  transition: border-color 0.5s ease;
-  transition: color 0.5s ease;
-  transition: fill 0.5s ease;
-  transition: stroke 0.5s ease;
-  border-radius: 8px;
+@media (prefers-reduced-motion: reduce) {
+  .app-navbar-main,
+  .app-mobile-menu,
+  .app-hamburger-bar {
+    transition: none;
+  }
 }

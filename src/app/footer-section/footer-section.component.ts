@@ -11,18 +11,12 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   styleUrls: ['./footer-section.component.css']
 })
 export class FooterSectionComponent {
-  logoicon: SafeHtml = logoSVG
-  link: string = 'contacto@clinicalossables.com';
-  isMenuOpen = false;
+  logoicon: SafeHtml = logoSVG;
   public mail: string = 'centromedicolossables@gmail.com';
+  currentYear: number = new Date().getFullYear();
+  facebookUrl = 'https://www.facebook.com/profile.php?id=61578933820425';
 
   constructor(private sanitizer: DomSanitizer) {
     this.logoicon = this.sanitizer.bypassSecurityTrustHtml(logoSVG);
-  }
-
-
-
-  toggleMenu(): void {
-    this.isMenuOpen = !this.isMenuOpen;
   }
 }

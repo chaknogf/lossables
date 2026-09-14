@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, NgZone, AfterViewInit, Inject, PLATFORM_ID, OnDestroy } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 import { isPlatformBrowser } from '@angular/common';
@@ -15,12 +15,14 @@ declare var bootstrap: any;
   standalone: true,
   imports: [CommonModule, FormsModule],
 })
-export class NavComponent implements OnInit, AfterViewInit {
+export class NavComponent implements OnInit, AfterViewInit, OnDestroy {
   logoicon: SafeHtml = logoSVG;
   link = 'centromedicolossables@gmail.com';
   isMenuOpen = false;
+  scrolled = false;
   form = { nombre: '', telefono: '', especialidad: '' };
   private modalInstance: any;
+  private scrollListener: (() => void) | null = null;
 
   constructor(
     private sanitizer: DomSanitizer,
@@ -31,7 +33,28 @@ export class NavComponent implements OnInit, AfterViewInit {
     this.logoicon = this.sanitizer.bypassSecurityTrustHtml(logoSVG);
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.scrollListener = this.ngZone.runOutsideAngular(() => {
+        const onScroll = () => {
+          const current = this.document.defaultView?.scrollY ?? 0;
+          const scrolled = current > 24;
+          if (scrolled !== this.scrolled) {
+            this.ngZone.run(() => (this.scrolled = scrolled));
+          }
+        };
+        this.document.defaultView?.addEventListener('scroll', onScroll, { passive: true });
+        return onScroll;
+      });
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.scrollListener && isPlatformBrowser(this.platformId)) {
+      this.document.defaultView?.removeEventListener('scroll', this.scrollListener);
+      this.scrollListener = null;
+    }
+  }
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {

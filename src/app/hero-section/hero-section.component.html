@@ -1,111 +1,109 @@
-<section class="hero-section position-relative overflow-hidden">
-  Elementos decorativos de fondo
-  <div class="floating-elements">
-    <div class="floating-circle circle-1"></div>
-    <div class="floating-circle circle-2"></div>
-    <div class="floating-circle circle-3"></div>
-    <div class="medical-cross cross-1">+</div>
-    <div class="medical-cross cross-2">+</div>
-  </div>
+<section id="inicio" class="hero-section section-padding" aria-label="Bienvenida">
+  <div class="container">
+    <div class="row align-items-center g-4">
 
-  <div class="hero-gradient"></div>
+      <!-- Contenido textual -->
+      <div class="col-12 col-lg-5 order-2 order-lg-1" appReveal>
+        <div class="hero-badge d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill mb-3">
+          <i class="bi bi-heart-pulse-fill text-primary"></i>
+          <span class="small fw-bold">Centro Médico Los Sables</span>
+        </div>
 
-  <div class="container-fluid px-4 py-5">
-    <div class="row align-items-center min-vh-100 g-5">
-      <div class="col-lg-6 order-1 order-lg-1">
-        <div class="hero-content position-relative">
-          <div class="stethoscope-container mb-4">
-            <app-estetocospio></app-estetocospio>
-          </div>
+        <h1 class="hero-title display-5 fw-bold lh-1 mb-3">
+          Tu salud en las
+          <span class="hero-title-accent">mejores manos</span>
+        </h1>
 
-          <h1 class="hero-title display-3 fw-bold mb-4">
-            Bienvenido al
-            <span class="text-primary">Centro Médico</span>
-            <span class="text-accent d-block">Los Sables</span>
-          </h1>
+        <p class="fs-5 text-secondary mb-4 pe-xl-4">
+          Atención médica integral con especialistas certificados y tecnología
+          moderna en Tecpán Guatemala. Tu bienestar es nuestra prioridad.
+        </p>
 
-          <p class="hero-subtitle lead mb-5">
-            <strong>Atención médica con calidad humana</strong><br />
-            Confía tu salud en manos expertas y modernas.
-          </p>
+        <!-- Trust items -->
+        <ul class="list-unstyled d-flex flex-wrap gap-3 mb-4">
+          <li class="hero-trust-item d-inline-flex align-items-center gap-2 rounded-pill px-3 py-1">
+            <i class="bi bi-award-fill text-primary"></i>
+            Especialistas certificados
+          </li>
+          <li class="hero-trust-item d-inline-flex align-items-center gap-2 rounded-pill px-3 py-1">
+            <i class="bi bi-telephone-fill text-primary"></i>
+            Emergencias 24/7
+          </li>
+        </ul>
 
-          <div
-            class="hero-actions order-3 d-flex flex-column flex-sm-row gap-3"
+        <!-- CTAs -->
+        <div class="d-flex flex-wrap gap-3">
+          <a
+            href="https://wa.me/50234826151"
+            class="btn btn-primary px-4 py-2 fw-semibold"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <a
-              href="https://wa.me/50234826151?text=Hola,%20quiero%20agendar%20una%20cita."
-              target="_blank"
-              class="btn btn-whatsapp btn-lg px-4 py-3 d-flex align-items-center justify-content-center gap-2"
-            >
-              <i class="fab fa-whatsapp fs-5"></i>
-              <span>Agendar Cita</span>
-            </a>
-
-            <a
-              href="#servicios"
-              type="button"
-              class="btn btn-services btn-lg px-4 py-3 d-flex align-items-center justify-content-center gap-2"
-            >
-              <i class="fas fa-stethoscope fs-6"></i>
-              <span>Nuestros Servicios</span>
-            </a>
-          </div>
+            Agendar cita
+            <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+          <a
+            href="tel:+50278403734"
+            class="btn btn-hero-ghost px-4 py-2 fw-semibold d-inline-flex align-items-center gap-2"
+          >
+            <i class="bi bi-telephone"></i> Llámanos
+          </a>
         </div>
       </div>
 
-      <div class="col-lg-6 order-2 order-lg-2">
-        <!-- Carrusel móvil -->
+      <!-- Galería visual -->
+      <div class="col-12 col-lg-7 order-1 order-lg-2" appReveal [delay]="120">
         <div
-          id="mobileCarousel"
-          class="carousel slide d-lg-none"
-          data-bs-ride="carousel"
-          data-bs-interval="3000"
-          data-bs-wrap="true"
+          class="hero-gallery position-relative"
+          (mouseenter)="autoPaused = true"
+          (mouseleave)="autoPaused = false"
+          (touchstart.passive)="autoPaused = true"
+          (touchend.passive)="autoPaused = false"
         >
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img
-                src="assets/medicos.avif"
-                class="d-block w-100 rounded-4 shadow-lg"
-                alt="Clínica Los Sables - Atención Médica"
-              />
+          <!-- Etapa principal -->
+          <div class="hero-stage position-relative rounded-4 overflow-hidden glass-card p-0">
+            <img
+              *ngFor="let img of heroImages; let i = index"
+              [src]="img.src"
+              [alt]="img.alt"
+              [class.active]="i === activeImage"
+              class="hero-main-img"
+              loading="eager"
+            />
+          </div>
+
+          <!-- Thumbnails -->
+          <div class="hero-thumbs d-flex gap-2 justify-content-center mt-3">
+            <button
+              *ngFor="let img of heroImages; let i = index"
+              class="hero-thumb border-0 p-0"
+              [class.active]="i === activeImage"
+              (click)="selectImage(i)"
+              [attr.aria-label]="'Ver imagen ' + (i + 1) + ' de ' + heroImages.length"
+            >
+              <img [src]="img.src" alt="" loading="lazy" />
+            </button>
+          </div>
+
+          <!-- Tarjetas flotantes (solo escritorio) -->
+          <div class="hero-float hero-float-emergency glass-card d-none d-md-flex">
+            <i class="bi bi-telephone-fill text-primary fs-5"></i>
+            <div>
+              <small class="fw-bold d-block">Emergencias 24/7</small>
+              <small class="text-secondary">+502 7840 3734</small>
             </div>
-            <div class="carousel-item">
-              <img
-                src="assets/medicos2.avif"
-                class="d-block w-100 rounded-4 shadow-lg"
-                alt="Equipo Médico 2"
-              />
-            </div>
-            <div class="carousel-item">
-              <img
-                src="assets/medicos3.avif"
-                class="d-block w-100 rounded-4 shadow-lg"
-                alt="Equipo Médico 3"
-              />
+          </div>
+
+          <div class="hero-float hero-float-rating glass-card d-none d-md-flex">
+            <i class="bi bi-star-fill text-warning"></i>
+            <div>
+              <small class="fw-bold d-block">Calificación</small>
+              <small class="text-secondary">98 % satisfacción</small>
             </div>
           </div>
         </div>
-
-        <!-- Imágenes apiladas en escritorio -->
-        <div class="hero-image-container d-none d-lg-flex flex-column gap-3">
-          <img
-            src="assets/medicos.avif"
-            alt="Clínica Los Sables - Atención Médica"
-            class="img-fluid rounded-4 shadow-lg hero-image"
-          />
-          <img
-            src="assets/medicos2.avif"
-            alt="Equipo Médico 2"
-            class="img-fluid rounded-4 shadow-lg hero-image"
-          />
-          <img
-            src="assets/medicos3.avif"
-            alt="Equipo Médico 3"
-            class="img-fluid rounded-4 shadow-lg hero-image"
-          />
-        </div>
       </div>
+
     </div>
   </div>
 </section>

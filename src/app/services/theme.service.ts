@@ -26,6 +26,7 @@ export class ThemeService {
     if (this.isBrowser) {
       localStorage.setItem('theme', theme);
       this.renderer.setAttribute(document.body, 'data-theme', theme);
+      this.renderer.setAttribute(document.body, 'data-bs-theme', theme);
     }
   }
 

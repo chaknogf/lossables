@@ -1,20 +1,59 @@
-import { Component, ElementRef, AfterViewInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  Inject,
+  PLATFORM_ID
+} from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { RevealDirective } from '../shared/reveal.directive';
 
-// import { BeatComponent } from '../beat/beat.component';
-// import { ActivatedRoute, RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { EstetocospioComponent } from '../estetocospio/estetocospio.component';
+interface HeroImage {
+  src: string;
+  alt: string;
+}
+
 @Component({
   selector: 'app-hero-section',
   standalone: true,
+  imports: [CommonModule, RevealDirective],
   templateUrl: './hero-section.component.html',
-  styleUrls: ['./hero-section.component.css'],
-  imports: [CommonModule, EstetocospioComponent]
+  styleUrls: ['./hero-section.component.css']
 })
-export class HeroSectionComponent {
+export class HeroSectionComponent implements OnInit, OnDestroy {
+  readonly heroImages: HeroImage[] = [
+    { src: 'assets/medicos.avif', alt: 'Equipo médico del Centro Médico Los Sables' },
+    { src: 'assets/medicos2.avif', alt: 'Doctora del Centro Médico Los Sables' },
+    { src: 'assets/medicos3.avif', alt: 'Atención médica integral en Tecpán Guatemala' }
+  ];
 
-  @ViewChild('lottieContainer', { static: true }) container!: ElementRef;
+  activeImage = 0;
+  autoPaused = false;
 
-  // constructor(private route: ActivatedRoute) { }
+  private autoTimer: ReturnType<typeof setInterval> | null = null;
+  private isBrowser: boolean;
 
+  constructor(@Inject(PLATFORM_ID) platformId: Object) {
+    this.isBrowser = isPlatformBrowser(platformId);
+  }
+
+  ngOnInit(): void {
+    if (this.isBrowser) {
+      this.autoTimer = setInterval(() => {
+        if (!this.autoPaused) {
+          this.activeImage = (this.activeImage + 1) % this.heroImages.length;
+        }
+      }, 5500);
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.autoTimer) {
+      clearInterval(this.autoTimer);
+    }
+  }
+
+  selectImage(i: number): void {
+    this.activeImage = i;
+  }
 }

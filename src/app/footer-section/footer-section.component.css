@@ -1,3 +1,127 @@
-.hover-link:hover {
-  color: #ffffff !important;
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.app-footer {
+  background: var(--bs-navy, #0b213e);
+  background: linear-gradient(160deg, #0b213e 0%, #0d2a33 100%);
+  color: #dbe4ec;
+  padding: 4.5rem 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.app-footer::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(closest-side, rgba(27, 138, 150, 0.22), transparent 70%);
+  pointer-events: none;
+}
+
+.app-footer .container {
+  position: relative;
+}
+
+.app-footer-logo {
+  width: 44px;
+}
+
+.app-footer-brand-accent {
+  color: var(--bs-primary);
+}
+
+.app-footer-title {
+  font-family: var(--app-font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+}
+
+.app-footer-list {
+  font-size: 0.9rem;
+  line-height: 2.1;
+}
+
+.app-footer-contact li {
+  display: flex;
+  gap: 0.6rem;
+  line-height: 1.7;
+  margin-bottom: 0.65rem;
+}
+
+.app-footer-contact li > i {
+  color: var(--bs-primary);
+  margin-top: 0.15rem;
+}
+
+.app-footer-link {
+  color: #aab4c0;
+  text-decoration: none;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.app-footer-link:hover {
+  color: #5eead4;
+}
+
+.app-footer-list:not(.app-footer-contact) .app-footer-link:hover {
+  padding-left: 4px;
+}
+
+.app-footer-clock {
+  color: #aab4c0;
+}
+
+/* Botones sociales */
+.social-btn {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.05rem;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: var(--app-transition);
+}
+
+.social-btn:hover {
+  background: var(--bs-primary);
+  border-color: var(--bs-primary);
+  transform: translateY(-3px);
+  color: #fff;
+}
+
+/* Botón seguir en Facebook */
+.app-footer-follow {
+  background: #1877f2;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+}
+.app-footer-follow:hover {
+  background: #0e63ce;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Barra inferior */
+.app-footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.6rem 0 1.8rem;
+  font-size: 0.85rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 575.98px) {
+  .app-footer {
+    padding-top: 3.5rem;
+  }
 }

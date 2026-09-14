@@ -1,395 +1,201 @@
-/* Variables CSS personalizadas */
-:root {
-  --primary-color: #2c5aa0;
-  --secondary-color: #1e3d72;
-  --accent-color: #00d4aa;
-  --success-color: #28a745;
-  --light-bg: #f8fafc;
-  --text-dark: #2d3748;
-  --text-muted: #718096;
-  --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.1);
-  --shadow-medium: 0 20px 60px rgba(0, 0, 0, 0.15);
-  --border-radius: 1rem;
-}
-
-/* Sección hero principal */
+/* ── Hero section ───────────────────────────────────────────── */
 .hero-section {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  min-height: 100vh;
-  position: relative;
+  padding-top: clamp(110px, 14vw, 180px);
+  padding-bottom: clamp(3rem, 5vw, 4.5rem);
 }
 
-/* Gradiente de fondo */
-.hero-gradient {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(ellipse at top left, rgba(44, 90, 160, 0.1) 0%, transparent 50%),
-              radial-gradient(ellipse at bottom right, rgba(0, 212, 170, 0.1) 0%, transparent 50%);
-  pointer-events: none;
+/* ── Badge ───────────────────────────────────────────────────── */
+.hero-badge {
+  background: rgba(27, 138, 150, 0.1);
+  border: 1px solid rgba(27, 138, 150, 0.18);
+  transition: var(--app-transition);
 }
 
-/* Elementos flotantes decorativos */
-.floating-elements {
+.hero-badge:hover {
+  background: rgba(27, 138, 150, 0.18);
+}
+
+/* ── Título ──────────────────────────────────────────────────── */
+.hero-title-accent {
+  background: linear-gradient(135deg, var(--bs-primary), var(--pacific-cyan));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── Trust items ─────────────────────────────────────────────── */
+.hero-trust-item {
+  background: rgba(27, 138, 150, 0.08);
+  border: 1px solid rgba(27, 138, 150, 0.15);
+  font-size: 0.88rem;
+  color: var(--bs-body-color);
+}
+
+/* ── Ghost CTA ───────────────────────────────────────────────── */
+.btn-hero-ghost {
+  border: 1.5px solid rgba(27, 138, 150, 0.35);
+  color: var(--bs-primary);
+  background: transparent;
+  transition: var(--app-transition);
+}
+
+.btn-hero-ghost:hover {
+  background: rgba(27, 138, 150, 0.1);
+  border-color: var(--bs-primary);
+  color: var(--bs-primary);
+}
+
+/* ── Galería principal ───────────────────────────────────────── */
+.hero-gallery {
+  width: 100%;
+}
+
+.hero-stage {
+  aspect-ratio: 16 / 11;
+  max-height: 420px;
+}
+
+.hero-main-img {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 800ms ease-in-out;
+  will-change: opacity;
+}
+
+.hero-main-img.active {
+  opacity: 1;
+}
+
+/* ── Thumbnails ──────────────────────────────────────────────── */
+.hero-thumbs {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.hero-thumb {
+  width: 72px;
+  height: 52px;
+  border-radius: 12px;
   overflow: hidden;
+  opacity: 0.55;
+  transition: var(--app-transition);
+  box-shadow: 0 0 0 2px transparent;
 }
 
-.floating-circle {
+.hero-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.hero-thumb:hover {
+  opacity: 0.85;
+}
+
+.hero-thumb.active {
+  opacity: 1;
+  box-shadow: 0 0 0 2.5px var(--bs-primary);
+}
+
+/* ── Tarjetas flotantes ──────────────────────────────────────── */
+.hero-float {
   position: absolute;
-  border-radius: 50%;
-  background: linear-gradient(45deg, rgba(44, 90, 160, 0.1), rgba(0, 212, 170, 0.1));
-  animation: float 6s ease-in-out infinite;
+  z-index: 10;
+  gap: 0.7rem;
+  padding: 0.8rem 1rem;
+  border-radius: var(--app-radius-md);
+  animation: heroFloat 6s ease-in-out infinite;
 }
 
-.circle-1 {
-  width: 120px;
-  height: 120px;
-  top: 10%;
-  right: 10%;
+.hero-float small {
+  line-height: 1.35;
+}
+
+.hero-float-emergency {
+  top: 12%;
+  left: -6%;
   animation-delay: 0s;
 }
 
-.circle-2 {
-  width: 80px;
-  height: 80px;
-  top: 60%;
-  left: 5%;
-  animation-delay: 2s;
+.hero-float-rating {
+  bottom: 14%;
+  right: -4%;
+  animation-delay: 2.5s;
 }
 
-.circle-3 {
-  width: 60px;
-  height: 60px;
-  bottom: 20%;
-  right: 20%;
-  animation-delay: 4s;
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
 }
 
-.medical-cross {
-  position: absolute;
-  font-size: 2rem;
-  font-weight: bold;
-  color: rgba(44, 90, 160, 0.2);
-  animation: pulse 4s ease-in-out infinite;
-}
-
-.cross-1 {
-  top: 20%;
-  left: 15%;
-  animation-delay: 1s;
-}
-
-.cross-2 {
-  bottom: 30%;
-  right: 15%;
-  animation-delay: 3s;
-}
-
-/* Contenido del hero */
-.hero-content {
-  z-index: 2;
-}
-
-.stethoscope-container {
-  animation: slideInLeft 1s ease-out;
-}
-
-.hero-title {
-  color: var(--text-dark);
-  line-height: 1.2;
-  animation: slideInUp 1s ease-out 0.2s both;
-}
-
-.text-primary {
-  color: var(--primary-color) !important;
-}
-
-.text-accent {
-  color: var(--accent-color) !important;
-}
-
-.hero-subtitle {
-  color: var(--text-muted);
-  font-size: 1.25rem;
-  line-height: 1.6;
-  animation: slideInUp 1s ease-out 0.4s both;
-}
-
-/* Indicadores de confianza */
-.trust-indicators {
-  animation: slideInUp 1s ease-out 0.6s both;
-}
-
-.trust-item {
-  background: rgba(255, 255, 255, 0.8);
-  padding: 0.75rem 1rem;
-  border-radius: var(--border-radius);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-}
-
-.trust-item:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-soft);
-}
-
-.trust-icon {
-  width: 32px;
-  height: 32px;
-  background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 0.875rem;
-}
-
-/* Botones de acción */
-.hero-actions {
-  animation: slideInUp 1s ease-out 0.8s both;
-}
-
-.btn-whatsapp {
-  background: linear-gradient(45deg, #25d366, #128c7e);
-  border: none;
-  color: white;
-  font-weight: 600;
-  border-radius: var(--border-radius);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  border-radius: 20px;
-}
-
-.btn-whatsapp::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
-
-}
-
-.btn-whatsapp:hover::before {
-  left: 100%;
-}
-
-.btn-whatsapp:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
-  color: white;
-
-}
-
-.btn-services {
-  background: rgba(255, 255, 255, 0.9);
-  border: 2px solid var(--primary-color);
-  color: #1e3d72;
-  font-weight: 600;
-  border-radius: var(--border-radius);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-  border-radius: 20px;
-}
-
-.btn-services:hover {
-  background: var(--primary-color);
-  color: white;
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-medium);
-
-}
-
-/* Contenedor de imagen */
-.hero-image-container {
-  animation: slideInRight 1s ease-out 0.5s both;
-}
-
-.image-wrapper {
-  position: relative;
-  z-index: 1;
-}
-
-.hero-image {
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 180px;
-  object-fit: cover;
-}
-
-.hero-image:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(20, 141, 184, 0.5);
-  position: relative;
-  z-index: 10;
-}
-
-/* Opcional: para que las imágenes del carousel tengan altura fija */
-#mobileCarousel .carousel-item img {
-  height: 200px;
-  object-fit: cover;
-  border-radius: 1rem;
-}
-/* Tarjeta flotante */
-.floating-card {
-  top: 20%;
-  left: -10%;
-  z-index: 2;
-  animation: floatCard 3s ease-in-out infinite;
-}
-
-.floating-card .card {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border-radius: var(--border-radius);
-  min-width: 200px;
-}
-
-.status-indicator {
-  width: 12px;
-  height: 12px;
-  background: var(--success-color);
-  border-radius: 50%;
-  position: relative;
-}
-
-.status-indicator::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: var(--success-color);
-  border-radius: 50%;
-  opacity: 0.3;
-  animation: pulse 2s infinite;
-}
-
-/* Animaciones */
-@keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(180deg); }
-}
-
-@keyframes floatCard {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.1); }
-}
-
-@keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(-50px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes slideInRight {
-  from { opacity: 0; transform: translateX(50px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes slideInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Responsive */
+/* ── Responsive ──────────────────────────────────────────────── */
 @media (max-width: 991.98px) {
-  .hero-title {
-    font-size: 2.5rem;
+  .hero-section {
+    padding-top: clamp(90px, 12vw, 140px);
   }
 
-  .floating-card {
-    position: relative;
-    top: auto;
-    left: auto;
-    margin-bottom: 2rem;
+  .hero-section .order-lg-2 {
+    margin-bottom: 1rem;
   }
 
-  .floating-circle {
-    display: none;
+  .hero-section .order-lg-1 {
+    text-align: center;
   }
 
-  .hero-actions {
-    flex-direction: column;
+  .hero-section .order-lg-1 ul {
+    justify-content: center;
   }
 
-  .btn-whatsapp,
-  .btn-services {
-    width: 100%;
+  .hero-section .order-lg-1 .d-flex.gap-3 {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .hero-stage {
+    aspect-ratio: 16 / 11;
+    max-height: 300px;
+  }
+
+  .hero-thumb {
+    width: 60px;
+    height: 42px;
+    border-radius: 10px;
   }
 }
 
 @media (max-width: 575.98px) {
-  .hero-title {
+  .hero-section {
+    padding-top: 80px;
+  }
+
+  .hero-section h1 {
     font-size: 2rem;
   }
 
-  .hero-subtitle {
-    font-size: 1.1rem;
+  .hero-stage {
+    aspect-ratio: 4 / 3;
+    max-height: 260px;
   }
 
-  .trust-indicators {
-    justify-content: center;
-  }
-
-  .trust-item {
-    flex: 1;
-    min-width: 120px;
+  .hero-thumb {
+    width: 52px;
+    height: 36px;
+    border-radius: 8px;
   }
 }
 
-/* Fondo verde degradado */
-.hero-section {
-  background: linear-gradient(135deg, #0d2240 0%, #148db8 100%);
-  min-height: 100vh;
-  position: relative;
-  color: white;
-}
+@media (prefers-reduced-motion: reduce) {
+  .hero-main-img {
+    transition: none;
+  }
 
-/* Ajustar gradiente decorativo para que combine */
-.hero-gradient {
-  background: radial-gradient(ellipse at top left, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
-              radial-gradient(ellipse at bottom right, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
-}
-
-/* Centrar estetoscopio */
-.stethoscope-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 2rem;
-  animation: slideInDown 1s ease-out;
-}
-
-/* Título y texto con mejor contraste en fondo verde */
-.hero-title {
-  color: white;
-}
-
-.hero-subtitle {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-/* Animación de entrada desde arriba para estetoscopio */
-@keyframes slideInDown {
-  from { opacity: 0; transform: translateY(-50px); }
-  to { opacity: 1; transform: translateY(0); }
+  .hero-float {
+    animation: none;
+  }
 }

@@ -1,27 +1,137 @@
-/* Estilos suaves para la transición */
-.btn-primary {
-  transition: background-color 0.3s ease;
+.about-visual {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--app-radius-xl);
+  overflow: hidden;
+  border: 1px solid rgba(27, 138, 150, 0.18);
+  box-shadow: var(--app-shadow-lg);
+  background: linear-gradient(135deg, rgba(27, 138, 150, 0.12), rgba(0, 180, 216, 0.08));
 }
 
-.btn-primary:hover {
-  background-color: #0b5ed7;
+.about-frame {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(27, 138, 150, 0.16), rgba(0, 180, 216, 0.12));
+  z-index: 0;
 }
 
-img {
-  max-height: 400px;
-  object-fit: cover;
-}
-
-.img-fit {
-  object-fit: contain;
+.about-img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
-  display: block;
+  object-fit: cover;
+  transition: transform 700ms ease;
 }
 
-.object-fit-contain {
-  object-fit: contain;
-  width: 100%;
-  height: auto;
-  max-height: 400px; /* o el valor que te convenga */
+.about-visual:hover .about-img {
+  transform: scale(1.04);
+}
+
+/* Chips flotantes — siempre dentro del rectángulo gracias a overflow:hidden */
+.about-exp-chip {
+  position: absolute;
+  z-index: 3;
+  bottom: 7%;
+  left: 6%;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--app-radius-md);
+  animation: aboutFloat 6s ease-in-out infinite;
+}
+
+.about-exp-chip strong {
+  color: var(--bs-heading-color);
+}
+
+.about-exp-chip small {
+  color: var(--bs-secondary-color);
+}
+
+.about-exp-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  font-size: 1.3rem;
+  color: #fff;
+  background: linear-gradient(135deg, var(--bs-primary), var(--pacific-cyan));
+  box-shadow: 0 6px 16px rgba(27, 138, 150, 0.4);
+  flex-shrink: 0;
+}
+
+.about-cert {
+  position: absolute;
+  z-index: 3;
+  top: 7%;
+  right: 6%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.9rem;
+  font-weight: 600;
+  animation: aboutFloat 6s 2.5s ease-in-out infinite;
+}
+
+.about-cert small {
+  color: var(--bs-body-color);
+  font-size: 0.82rem;
+}
+
+.about-feature-icon {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  font-size: 1.15rem;
+  color: var(--bs-primary);
+  background: rgba(27, 138, 150, 0.1);
+  transition: var(--app-transition);
+}
+
+.about-feature-icon:hover {
+  background: var(--bs-primary);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+@keyframes aboutFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@media (max-width: 991.98px) {
+  .about-visual {
+    aspect-ratio: 16 / 10;
+    max-height: 380px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .about-visual {
+    aspect-ratio: 16 / 10;
+    max-height: 260px;
+  }
+
+  .about-cert {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-exp-chip,
+  .about-cert {
+    animation: none;
+  }
+
+  .about-img {
+    transition: none;
+  }
 }

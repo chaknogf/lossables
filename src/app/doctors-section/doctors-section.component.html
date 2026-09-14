@@ -1,32 +1,50 @@
-<section id="doctores" class="py-5 bg-white">
+<section id="doctores" class="section-padding bg-app-alt">
   <div class="container">
     <div class="text-center mb-5">
-      <h2 class="fw-bold text-dark h1 mb-3">Nuestro Equipo Médico</h2>
-      <p class="fs-5 text-secondary mx-auto" style="max-width: 720px;">
-        Profesionales altamente calificados comprometidos con tu bienestar
+      <span class="section-eyebrow">Especialistas</span>
+      <h2 class="section-title">Nuestro Equipo Médico</h2>
+      <p class="section-subtitle">
+        Profesionales altamente calificados, comprometidos con tu bienestar
       </p>
     </div>
 
-    <div class="row g-4">
-      <div class="col-12 col-md-6 col-lg-4" *ngFor="let doctor of doctors">
-        <div class="rounded-4 shadow p-4 text-center h-100 hover-shadow transition"
-             style="background: linear-gradient(135deg, var(--bs-primary), var(--bs-dark)); color: var(--bs-light);">
-          <img
-            [src]="doctor.imagen"
-            [alt]="doctor.nombre"
-            class="rounded-circle mb-2 border border-3 border-light"
-            style="width: 150px; height: 150px; object-fit: cover; object-position: top;"
-          />
-          <h3 class="h5 fw-bold text-white">{{ doctor.nombre }}</h3>
-          <p class="fw-semibold bg-white rounded-pill text-{{ doctor.color }} mb-3">{{ doctor.especialidad }}</p>
-          <p class="text-light small mb-3">{{ doctor.descripcion }}</p>
-          <div class="d-flex justify-content-center mb-3">
-            <i class="bi bi-star-fill text-warning me-1" *ngFor="let _ of [1,2,3,4,5]"></i>
+    <div class="row g-4 justify-content-center">
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let doctor of doctors; index as i">
+        <article
+          appReveal
+          [delay]="(i % 3) * 100"
+          class="doctor-card h-100 text-center glass-card"
+        >
+          <div class="doctor-avatar-wrap">
+            <img
+              [src]="doctor.imagen"
+              [alt]="'Doctora o doctor ' + doctor.nombre"
+              class="doctor-avatar"
+              loading="lazy"
+              width="140"
+              height="140"
+            />
           </div>
-          <a [href]="doctor.perfil" class="fw-semibold text-white text-decoration-none">
-            Ver perfil
+
+          <h3 class="h5 fw-bold mb-1">{{ doctor.nombre }}</h3>
+          <span class="doctor-specialty text-{{ doctor.color }}">
+            {{ doctor.especialidad }}
+          </span>
+
+          <p class="doctor-desc text-secondary">{{ doctor.descripcion }}</p>
+
+          <div class="doctor-stars mb-3" aria-label="Calificación: 5 de 5 estrellas">
+            <i class="bi bi-star-fill" *ngFor="let _ of [1,2,3,4,5]"></i>
+          </div>
+
+          <a
+            [href]="doctor.perfil"
+            class="btn btn-sm btn-outline-primary btn-doctor"
+          >
+            Ver perfil completo
+            <i class="bi bi-arrow-right ms-1"></i>
           </a>
-        </div>
+        </article>
       </div>
     </div>
   </div>

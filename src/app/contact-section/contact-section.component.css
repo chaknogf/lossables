@@ -1,17 +1,97 @@
-textarea,
-input,
-select {
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+/* =========================================================
+   CONTACTO
+   ========================================================= */
+
+.contact-map-card {
+  background: var(--bs-secondary);
+  border-radius: var(--app-radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--app-shadow-md);
 }
 
-textarea:focus,
-input:focus,
-select:focus {
-  border-color: #0d6efd !important;
-  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+.contact-map-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1.1rem 1.4rem;
+  margin: 0;
+  color: #ffffff;
+  font-family: var(--app-font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
 }
 
-.bg-map-gradient {
-  background: linear-gradient(135deg, var(--marian-blue), var(--blue-green));
-  color: white;
+.contact-map-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #5eead4;
+  box-shadow: 0 0 0 4px rgba(94, 234, 212, 0.2);
+}
+
+.contact-map-body {
+  flex-grow: 1;
+  background: var(--bs-body-bg);
+  border-radius: 1.1rem 1.1rem 0 0;
+  margin: 0 0.6rem 0.6rem;
+  overflow: hidden;
+}
+
+.contact-map-body ::ng-deep .mapa-ratio {
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+/* Tarjetas de información */
+.contact-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.1rem 1.2rem;
+  background: var(--bs-body-bg);
+  border: 1px solid var(--bs-border-color-translucent);
+  border-radius: var(--app-radius-md);
+  box-shadow: var(--app-shadow-sm);
+  color: var(--bs-body-color);
+  transition: var(--app-transition);
+}
+
+a.contact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--app-shadow-md);
+  border-color: rgba(27, 138, 150, 0.3);
+}
+
+.contact-card-icon {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 1.25rem;
+}
+
+.contact-card small {
+  color: var(--bs-secondary-color);
+  line-height: 1.65;
+}
+
+.bg-tint-teal {
+  color: var(--bs-primary);
+  background: rgba(27, 138, 150, 0.12);
+}
+.bg-tint-green {
+  color: #0f9d58;
+  background: rgba(15, 157, 88, 0.12);
+}
+.bg-tint-cyan {
+  color: #0284c7;
+  background: rgba(2, 132, 199, 0.12);
+}
+.bg-tint-amber {
+  color: #d97706;
+  background: rgba(217, 119, 6, 0.12);
 }

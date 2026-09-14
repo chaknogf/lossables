@@ -4,6 +4,7 @@ import express from 'express';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import bootstrap from './main.server';
+import { getFacebookPosts } from './fb-posts-helper';
 
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
@@ -13,16 +14,17 @@ const app = express();
 const commonEngine = new CommonEngine();
 
 /**
- * Example Express Rest API endpoints can be defined here.
- * Uncomment and define endpoints as necessary.
- *
- * Example:
- * ```ts
- * app.get('/api/**', (req, res) => {
- *   // Handle API request
- * });
- * ```
+ * API rest — publicaciones de Facebook (la usa facebook-section).
  */
+app.get('/api/facebook-posts', async (_req, res) => {
+  res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=600');
+  try {
+    const result = await getFacebookPosts();
+    res.status(result.ok ? 200 : 503).json(result);
+  } catch (err) {
+    res.status(500).json({ error: err instanceof Error ? err.message : 'Error interno' });
+  }
+});
 
 /**
  * Serve static files from /browser

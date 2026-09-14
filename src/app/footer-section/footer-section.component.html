@@ -1,84 +1,146 @@
-<footer class="bg-dark text-light py-5" data-bs-theme="dark">
+<footer class="app-footer" data-bs-theme="dark">
   <div class="container">
-    <div class="row g-4 mb-4">
+    <div class="row g-4 g-lg-5 pb-4">
 
       <!-- Marca -->
-      <div class="col-lg-6">
+      <div class="col-lg-4">
         <div class="d-flex align-items-center mb-3">
-          <!-- <i class="bi bi-heart-fill text-primary fs-4 me-2"></i> -->
-           <span [innerHTML]="logoicon" class="d-inline-block" style="width: 40px;"></span>
-          <h3 class="h4 fw-bold mb-0 text-light">
-            <div class="d-inline-block align-middle text-center lh-1">
-              <span class="montserrat d-block m-0 p-0">CENTRO MÉDICO</span>
-              <span class="robotos d-block m-0 p-0">LOS SABLES</span>
-            </div>
-          </h3>
+          <span [innerHTML]="logoicon" class="d-inline-block app-footer-logo" aria-hidden="true"></span>
+          <div class="d-inline-block align-middle lh-1 ms-2">
+            <span class="montserrat d-block p-0">CENTRO MÉDICO</span>
+            <span class="robotos d-block p-0 app-footer-brand-accent">LOS SABLES</span>
+          </div>
         </div>
-       <p class="text-footer-muted mb-4">
-          Tu salud es nuestra prioridad. Brindamos atención médica integral con tecnología de vanguardia y un equipo humano comprometido.
+        <p class="text-footer-muted mb-4">
+          Tu salud es nuestra prioridad. Brindamos atención médica integral con
+          tecnología de vanguardia y un equipo humano comprometido.
         </p>
-        <div class="d-flex gap-2">
-          <a href="https://www.facebook.com/profile.php?id=61578933820425" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-light rounded-pill px-3">
-  Facebook
-</a>
-         <a href="https://www.instagram.com/centromedicolossables?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-light rounded-pill px-3">
-  Instagram
-</a>
-
+        <div class="d-flex gap-2 social-buttons">
+          <a
+            [href]="facebookUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-btn"
+            aria-label="Síguenos en Facebook"
+          >
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/centromedicolossables"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-btn"
+            aria-label="Síguenos en Instagram"
+          >
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a
+            href="https://wa.me/50234826151"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-btn"
+            aria-label="Escríbenos por WhatsApp"
+          >
+            <i class="bi bi-whatsapp"></i>
+          </a>
         </div>
       </div>
 
       <!-- Servicios -->
-      <div class="col-md-3 col-6">
-        <h5 class="fw-semibold mb-3 text-light">Servicios</h5>
-        <ul class="list-unstyled">
-          <li><a href="#" class="text-decoration-none link-light link-hover">Cardiología</a></li>
-          <li><a href="#" class="text-decoration-none link-light link-hover">Medicina General</a></li>
-          <li><a href="#" class="text-decoration-none link-light link-hover">Pediatría</a></li>
-          <li><a href="#" class="text-decoration-none link-light link-hover">Ginecología</a></li>
-          <li><a href="#" class="text-decoration-none link-light link-hover">Emergencias</a></li>
+      <div class="col-6 col-md-4 col-lg-2">
+        <h5 class="app-footer-title fw-semibold mb-3">Servicios</h5>
+        <ul class="list-unstyled app-footer-list">
+          <li><a class="app-footer-link" href="#servicios">Medicina General</a></li>
+          <li><a class="app-footer-link" href="#servicios">Pediatría</a></li>
+          <li><a class="app-footer-link" href="#servicios">Ginecología</a></li>
+          <li><a class="app-footer-link" href="#servicios">Cirugía</a></li>
+          <li><a class="app-footer-link" href="#laboratorio">Laboratorio</a></li>
+          <li><a class="app-footer-link" href="#servicios">Emergencias</a></li>
         </ul>
       </div>
 
       <!-- Contacto -->
-      <div class="col-md-3 col-6">
-        <h5 class="fw-semibold mb-3 text-light">Contacto</h5>
-        <ul class="list-unstyled text-light-emphasis">
-          <li class="d-flex align-items-center mb-2">
-            <i class="bi bi-telephone-fill text-primary me-2"></i>
-            +502 7840 3734
+      <div class="col-6 col-md-4 col-lg-3">
+        <h5 class="app-footer-title fw-semibold mb-3">Contacto</h5>
+        <ul class="list-unstyled app-footer-list app-footer-contact">
+          <li>
+            <i class="bi bi-telephone-fill"></i>
+            <a class="app-footer-link" href="tel:+50278403734">+502 7840 3734</a>
           </li>
-          <li class="d-flex align-items-center mb-2">
-            <i class="bi bi-envelope-fill text-primary me-2"></i>
-            {{ mail }}
+          <li>
+            <i class="bi bi-whatsapp"></i>
+            <a class="app-footer-link" href="https://wa.me/50234826151" target="_blank" rel="noopener noreferrer">+502 3482 6151</a>
           </li>
-           <li class="d-flex align-items-start">
-  <i class="bi bi-geo-alt-fill text-primary me-2 mt-1" aria-hidden="true"></i>
-  <a
-    href="https://maps.app.goo.gl/BQ3yLriWQF3LPt3W7"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="text-decoration-none link-light link-hover"
-  >
-    1ra calle 6-51 zona 4, Tecpán Guatemala
-  </a>
-</li>
+          <li>
+            <i class="bi bi-envelope-fill"></i>
+            <a class="app-footer-link" [href]="'mailto:' + mail">{{ mail }}</a>
+          </li>
+          <li class="align-items-start">
+            <i class="bi bi-geo-alt-fill mt-1"></i>
+            <a
+              class="app-footer-link"
+              href="https://maps.app.goo.gl/BQ3yLriWQF3LPt3W7"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              1ra calle 6-51 zona 4,<br />Tecpán Guatemala
+            </a>
+          </li>
+          <li>
+            <i class="bi bi-clock-fill"></i>
+            <span class="app-footer-clock">Lun–Vie 8:30–18:00 · Sáb 8:30–12:00</span>
+          </li>
         </ul>
+      </div>
+
+      <!-- Novedades -->
+      <div class="col-md-8 col-lg-3">
+        <h5 class="app-footer-title fw-semibold mb-3">
+          <i class="bi bi-megaphone-fill me-1"></i> Novedades
+        </h5>
+        <p class="text-footer-muted small">
+          Enterate de nuestras campañas de salud, horarios y avisos importantes.
+          Actualizamos cada semana en redes sociales.
+        </p>
+        <a
+          class="app-footer-follow btn btn-sm d-inline-flex align-items-center gap-2 mt-2 mb-3"
+          href="#novedades"
+        >
+          <i class="bi bi-images"></i>
+          Ver publicaciones
+        </a>
+        <a
+          class="btn btn-sm d-inline-flex align-items-center gap-2"
+          style="background: #1877f2; color: #fff"
+          [href]="facebookUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="bi bi-facebook"></i>
+          Seguir en Facebook
+        </a>
       </div>
     </div>
 
     <!-- Créditos -->
-    <div class="border-top pt-4 d-flex flex-column flex-md-row justify-content-between align-items-center border-light-subtle">
-      <p class="mb-2 mb-md-0 text-light-emphasis">&copy; 2025 Centro Médico Los Sables. Todos los derechos reservados.</p>
-      <div class="d-flex gap-3">
-      <a href="#" class="text-light-emphasis text-decoration-none link-hover">Política de Privacidad</a>
-      <a href="#" class="text-light-emphasis text-decoration-none link-hover">Términos de Servicio</a>
-      <a href="https://github.com/chaknogf" target="_blank" rel="noopener noreferrer"
-   class="text-light-emphasis text-decoration-none link-hover d-inline-flex align-items-center gap-1">
-  <i class="bi bi-github fs-5"></i>
-   chaknogf
-</a>
+    <div
+      class="app-footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center"
+    >
+      <p class="mb-2 mb-md-0 text-footer-muted">
+        &copy; {{ currentYear }} Centro Médico Los Sables. Todos los derechos reservados.
+      </p>
+      <div class="d-flex gap-4 align-items-center">
+        <a href="#" class="app-footer-link">Política de Privacidad</a>
+        <a href="#" class="app-footer-link">Términos de Servicio</a>
+        <a
+          href="https://github.com/chaknogf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="app-footer-link d-inline-flex align-items-center gap-1"
+        >
+          <i class="bi bi-github"></i>
+        </a>
       </div>
     </div>
-    </div>
+  </div>
 </footer>

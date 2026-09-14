@@ -1,63 +1,71 @@
-<section id="laboratorio" class="py-5 bg-light">
+<section id="laboratorio" class="section-padding bg-white">
   <div class="container">
-
-    <!-- Título -->
     <div class="text-center mb-5">
-      <h2 class="fw-bold text-primary">Laboratorio Clínico</h2>
-      <p class="text-muted fs-5">
+      <span class="section-eyebrow">Diagnóstico y Análisis</span>
+      <h2 class="section-title">Laboratorio Clínico</h2>
+      <p class="section-subtitle">
         Resultados precisos y confiables para un diagnóstico seguro
       </p>
     </div>
 
-    <div class="row align-items-center flex-column flex-md-row-reverse g-4">
-
+    <div class="row align-items-center flex-column flex-md-row-reverse g-5">
       <!-- Imagen -->
-      <div class="col-md-6 text-center">
-        <img
-          src="assets/labs.avif"
-          alt="microscopio"
-          class="img-fluid rounded-4 shadow-lg"
-          style="max-height: 350px; object-fit: contain;"
-        />
-
+      <div class="col-md-6">
+        <div class="lab-visual position-relative text-center">
+          <div class="lab-halo" aria-hidden="true"></div>
+          <img
+            src="assets/labs.avif"
+            alt="Microscopio del laboratorio clínico del Centro Médico Los Sables"
+            class="rounded-4 shadow-lg lab-img"
+            loading="lazy"
+          />
+          <div class="lab-badge glass-card">
+            <i class="bi bi-check2-circle-fill"></i>
+            <span><strong>Resultados</strong><small>rápidos y seguros</small></span>
+          </div>
+        </div>
       </div>
 
       <!-- Texto -->
       <div class="col-md-6">
-        <h4 class="fw-semibold mb-3">La importancia del laboratorio clínico</h4>
-        <p class="mb-3">
-          El laboratorio clínico es un pilar fundamental en el diagnóstico médico.
-          Nuestros análisis permiten detectar, confirmar y monitorear enfermedades,
-          brindando información clave para decisiones médicas precisas y oportunas.
-        </p>
-        <p class="mb-4">
-          Contamos con tecnología avanzada y un equipo altamente capacitado para
-          ofrecer resultados rápidos, seguros y confiables.
+        <h3 class="h2 fw-bold mb-3">
+          La importancia del laboratorio clínico
+        </h3>
+        <p class="fs-5 text-secondary mb-4">
+          El laboratorio clínico es un pilar fundamental en el diagnóstico
+          médico. Nuestros análisis permiten detectar, confirmar y monitorear
+          enfermedades, brindando información clave para decisiones precisas.
         </p>
 
-        <!-- Lista de beneficios -->
-        <ul class="list-unstyled">
-          <li class="mb-2">✔️ Diagnósticos más precisos</li>
-          <li class="mb-2">✔️ Resultados en menor tiempo</li>
-          <li class="mb-2">✔️ Equipos de última generación</li>
-          <li>✔️ Confidencialidad y cuidado de datos</li>
+        <ul class="list-unstyled lab-list mb-4">
+          <li>
+            <i class="bi bi-check-circle-fill"></i>
+            Diagnósticos más precisos
+          </li>
+          <li>
+            <i class="bi bi-check-circle-fill"></i>
+            Resultados en menor tiempo
+          </li>
+          <li>
+            <i class="bi bi-check-circle-fill"></i>
+            Equipos de última generación
+          </li>
+          <li>
+            <i class="bi bi-check-circle-fill"></i>
+            Confidencialidad y cuidado de datos
+          </li>
         </ul>
-         <div class="row g-4 mb-4">
-          <div class="col-12 col-sm-6 d-flex align-items-start">
-            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3"
-                 style="width: 48px; height: 48px;">
-              <i class="bi bi-award-fill fs-5"></i>
-            </div>
-            <div>
-              <h5 class="fw-semibold mb-0 text-dark">Tecnología de vanguardia</h5>
-              <small class="text-muted">Calidad garantizada</small>
-            </div>
+
+        <div class="lab-tech d-flex align-items-center gap-3">
+          <div class="lab-tech-icon">
+            <i class="bi bi-award-fill"></i>
           </div>
-
-
+          <div>
+            <h4 class="h6 fw-bold mb-0">Tecnología de vanguardia</h4>
+            <small class="text-secondary">Calidad garantizada en cada análisis</small>
+          </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>

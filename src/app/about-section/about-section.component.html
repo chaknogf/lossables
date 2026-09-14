@@ -1,46 +1,66 @@
-<section id="nosotros" class="py-5 bg-light">
+<section id="nosotros" class="section-padding bg-app-alt" aria-label="Sobre nosotros">
   <div class="container">
-    <div class="row align-items-center gy-5">
-      <div class="col-12 col-lg-6">
-        <img
-          src="assets/sables.avif"
-          srcset="assets/sables.avif 800w, assets/sables.avif 1200w"
-          sizes="(max-width: 992px) 100vw, 50vw"
-          alt="Sobre Clínica Los Sables"
-          class="img-fluid rounded-4 shadow-lg w-100 object-fit-contain"
-        />
+    <div class="row align-items-center g-5">
+      <!-- Imagen -->
+      <div class="col-12 col-lg-6" appReveal>
+        <div class="about-visual position-relative rounded-4 overflow-hidden">
+          <div class="about-frame" aria-hidden="true"></div>
+          <img
+            src="assets/sables.avif"
+            srcset="assets/sables.avif 800w, assets/sables.avif 1200w"
+            sizes="(max-width: 992px) 100vw, 48vw"
+            alt="Instalaciones del Centro Médico Los Sables en Tecpán Guatemala"
+            class="about-img"
+            loading="lazy"
+          />
+          <!-- Chip de experiencia -->
+          <div class="about-exp-chip glass-card">
+            <div class="about-exp-icon">
+              <i class="bi bi-heart-pulse-fill"></i>
+            </div>
+            <div>
+              <strong class="d-block fs-5 lh-sm">+10 años</strong>
+              <small class="text-secondary small">de trayectoria</small>
+            </div>
+          </div>
+          <!-- Badge certificado -->
+          <div class="about-cert glass-card">
+            <i class="bi bi-patch-check-fill text-primary"></i>
+            <small>Certificados y listos para ti</small>
+          </div>
+        </div>
       </div>
 
-      <div class="col-12 col-lg-6">
-        <h2 class="h1 fw-bold text-dark mb-4">
-          Sobre Centro Médico Los Sables
+      <!-- Contenido -->
+      <div class="col-12 col-lg-6" appReveal [delay]="120">
+        <span class="section-eyebrow">Sobre nosotros</span>
+        <h2 class="section-title">
+          Un centro médico comprometido con tu bienestar
         </h2>
         <p class="fs-5 text-secondary mb-4">
-          Con más de 10 años de experiencia, somos una institución médica
-          comprometida con brindar atención de calidad, utilizando tecnología de
-          vanguardia y un enfoque humano.
+          Con más de 10 años de trayectoria en Tecpán Guatemala, combinamos
+          tecnología de vanguardia, especialistas certificados y un trato humano
+          en cada atención para que recibas la mejor atención médica.
         </p>
 
         <div class="row g-4 mb-4">
-          <div class="col-12 col-sm-6 d-flex align-items-start">
-            <div
-              class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3"
-              style="width: 48px; height: 48px"
-            >
-              <i class="bi bi-people-fill fs-5"></i>
+          <div class="col-sm-6 d-flex align-items-start gap-3" *ngFor="let f of features">
+            <div class="about-feature-icon">
+              <i [class]="f.icon"></i>
             </div>
             <div>
-              <h5 class="fw-semibold mb-0 text-dark">Equipo Experto</h5>
-              <small class="text-muted">Especialistas certificados</small>
+              <h3 class="h6 fw-bold mb-1">{{ f.title }}</h3>
+              <small class="text-secondary">{{ f.desc }}</small>
             </div>
           </div>
         </div>
 
         <a
           href="#contacto"
-          class="btn btn-primary px-4 py-2 rounded-pill fw-semibold shadow-sm"
+          class="btn btn-primary px-4 py-2 fw-semibold"
         >
           Conoce más sobre nosotros
+          <i class="bi bi-arrow-right ms-1"></i>
         </a>
       </div>
     </div>
